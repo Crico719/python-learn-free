@@ -1,0 +1,11 @@
+# Curso Python - Temas y Ejercicios
+
+## Estructura por lección:
+- teoría: Explicación del concepto con ejemplos
+- exercises: Lista de ejercicios prácticos
+  - question: Descripción del ejercicio
+  - hint: Pista para resolverlo
+  - answer: Código de referencia (no se muestra al usuario directamente)
+
+Lecciones disponibles: 1-12
+Cada lección vale 10 puntos al completarla.
