@@ -1,105 +1,257 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Python Learn - Curso Interactivo</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Python Learn - Curso Interactivo Gratuito</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #0f0f23; color: #e0e0e0; overflow: hidden; }
-#app { display: flex; height: 100vh; }
-.sidebar { width: 280px; background: #1a1a2e; border-right: 1px solid #333; display: flex; flex-direction: column; overflow-y: auto; }
-.logo { padding: 24px 20px; text-align: center; border-bottom: 1px solid #333; }
-.logo-icon { font-size: 48px; margin-bottom: 8px; }
-.logo h1 { color: #00d4ff; font-size: 24px; }
-.tagline { color: #888; font-size: 12px; margin-top: 4px; }
-.stats { display: flex; justify-content: space-around; padding: 16px; background: #16213e; border-bottom: 1px solid #333; }
-.stat-item { text-align: center; }
-.stat-label { font-size: 18px; display: block; }
-.stat-value { font-size: 20px; font-weight: bold; color: #00d4ff; }
-.lesson-list { flex: 1; overflow-y: auto; padding: 8px; }
-.lesson-item { padding: 12px 16px; margin: 4px 0; border-radius: 8px; cursor: pointer; transition: all 0.3s; }
-.lesson-item:hover { background: #2a2a4a; }
-.lesson-item.active { background: #0f3460; border-left: 3px solid #00d4ff; }
-.lesson-item.completed { opacity: 0.6; }
-.lesson-num { color: #00d4ff; font-weight: bold; font-size: 13px; }
-.lesson-name { color: #e0e0e0; font-size: 14px; margin-top: 2px; }
-.lesson-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; margin-top: 4px; }
-.badge-learn { background: #1e3a5f; color: #4fc3f7; }
-.badge-practice { background: #2e7d32; color: #a5d6a7; }
-.badge-project { background: #e65100; color: #ffcc80; }
-.main { flex: 1; overflow-y: auto; }
-.hero { display: flex; align-items: center; justify-content: center; height: 100vh; background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%); }
-.hero-card { text-align: center; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 20px; padding: 60px; border: 1px solid rgba(0,212,255,0.2); max-width: 500px; }
-.hero-card h2 { color: #00d4ff; font-size: 42px; margin-bottom: 12px; }
-.hero-card p { color: #aaa; font-size: 18px; }
-.hero-sub { color: #666; font-size: 14px; margin-top: 8px; }
-.btn-primary { background: linear-gradient(135deg, #00d4ff, #0099cc); color: #fff; border: none; padding: 14px 48px; border-radius: 12px; font-size: 18px; cursor: pointer; margin-top: 24px; transition: all 0.3s; }
-.btn-primary:hover { transform: scale(1.05); box-shadow: 0 4px 20px rgba(0,212,255,0.4); }
-.lesson-view { padding: 24px; max-width: 800px; margin: 0 auto; }
-.lesson-header { display: flex; align-items: center; margin-bottom: 24px; }
-.btn-back { background: #333; color: #aaa; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 14px; }
-.lesson-header h2 { color: #00d4ff; margin-left: 16px; font-size: 28px; }
-.topic-card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 24px; margin: 16px 0; border: 1px solid #333; }
-.topic-title { color: #fff; font-size: 20px; margin-bottom: 8px; }
-.topic-desc { color: #888; font-size: 14px; margin-bottom: 16px; }
-.exercise { background: #1e1e3a; border-radius: 8px; padding: 16px; margin: 12px 0; border-left: 3px solid #00d4ff; }
-.exercise-title { color: #4fc3f7; font-size: 15px; margin-bottom: 8px; }
-.exercise-hint { color: #666; font-size: 12px; margin-top: 8px; font-style: italic; }
-.code-input { width: 100%; background: #0d0d1a; color: #00ff88; border: 1px solid #333; border-radius: 8px; padding: 12px; font-family: 'Consolas', monospace; font-size: 14px; margin-top: 8px; resize: vertical; min-height: 60px; }
-.btn-run { background: #00d4ff; color: #fff; border: none; padding: 10px 24px; border-radius: 8px; cursor: pointer; font-size: 14px; margin-top: 8px; }
-.btn-run:hover { background: #0099cc; }
-.result-ok { color: #00ff88; font-weight: bold; margin-top: 8px; }
-.result-error { color: #ff4444; font-weight: bold; margin-top: 8px; }
-.progress-bar { height: 8px; background: #333; border-radius: 4px; margin: 12px 0; overflow: hidden; }
-.progress-fill { height: 100%; background: linear-gradient(90deg, #00d4ff, #00ff88); border-radius: 4px; transition: width 0.5s; }
-.lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
-.lesson-grid-item { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 16px; text-align: center; cursor: pointer; border: 1px solid #333; transition: all 0.3s; }
-.lesson-grid-item:hover { border-color: #00d4ff; transform: translateY(-2px); }
-.lesson-grid-item.completed { border-color: #00ff88; }
-.lesson-grid-item .num { color: #00d4ff; font-size: 24px; font-weight: bold; }
-.lesson-grid-item .name { color: #aaa; font-size: 12px; margin-top: 4px; }
-.nav-bottom { display: flex; justify-content: space-around; padding: 16px; background: #1a1a2e; border-top: 1px solid #333; }
-.nav-btn { background: none; border: none; color: #666; font-size: 20px; cursor: pointer; padding: 8px; }
-.nav-btn.active { color: #00d4ff; }
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0d1117;--panel:#161b22;--panel2:#1c2431;--line:#2b3646;--txt:#e6edf3;--dim:#8b98a9;--cyan:#22d3ee;--green:#3fb950;--yel:#d29922;--pur:#a371f7;--red:#f85149}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--txt)}
+button{font-family:inherit;cursor:pointer}
+#layout{display:flex;min-height:100vh}
+aside{width:290px;flex-shrink:0;background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+.brand{padding:20px;border-bottom:1px solid var(--line);text-align:center}
+.brand .logo{font-size:40px}
+.brand h1{font-size:20px;color:var(--cyan);margin-top:4px}
+.brand small{color:var(--dim);font-size:12px}
+.hud{display:grid;grid-template-columns:repeat(3,1fr);padding:14px;background:var(--panel2);border-bottom:1px solid var(--line);text-align:center}
+.hud b{display:block;font-size:18px;color:var(--cyan)}
+.hud span{font-size:11px;color:var(--dim)}
+#secList{flex:1;overflow-y:auto;padding:8px}
+.sec{border-bottom:1px solid var(--line);padding:8px 10px}
+.sec h3{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin:6px 0}
+.sec a{display:flex;gap:8px;align-items:center;padding:7px 9px;border-radius:6px;color:var(--txt);text-decoration:none;font-size:13px}
+.sec a:hover{background:var(--panel2)}
+.sec a.on{background:#1f6feb33;border-left:3px solid var(--cyan)}
+.dot{width:9px;height:9px;border-radius:50%;background:#30363d;flex-shrink:0}
+.dot.done{background:var(--green)}
+.dot.proj{background:var(--yel)}
+main{flex:1;min-width:0;display:flex;flex-direction:column}
+#top{display:flex;align-items:center;gap:12px;padding:12px 20px;border-bottom:1px solid var(--line);background:var(--panel);position:sticky;top:0;z-index:5}
+#top h2{font-size:18px;flex:1}
+.ghost{background:transparent;border:1px solid var(--line);color:var(--dim);padding:7px 13px;border-radius:7px;font-size:13px}
+.ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+.bar{height:5px;background:var(--panel2)}
+.bar div{height:100%;background:linear-gradient(90deg,var(--cyan),var(--green));transition:width .4s}
+#body{flex:1;padding:22px;max-width:920px;width:100%;margin:0 auto}
+.hero{text-align:center;padding:70px 20px}
+.hero h2{font-size:38px;color:var(--cyan)}
+.hero p{color:var(--dim);margin:10px 0}
+.btn{background:linear-gradient(135deg,#22d3ee,#0ea5e9);border:0;color:#04222a;font-weight:700;padding:13px 34px;border-radius:10px;font-size:16px}
+.btn:hover{filter:brightness(1.1)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:16px}
+.card h3{color:#fff;font-size:19px;margin-bottom:6px}
+.card .desc{color:var(--dim);font-size:14px}
+.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600}
+.b-learn{background:#1f4b7355;color:#58a6ff}
+.b-prac{background:#2d6a3555;color:var(--green)}
+.b-proj{background:#6b4a1455;color:var(--yel)}
+pre{background:#010409;border:1px solid var(--line);border-radius:9px;padding:14px;overflow-x:auto;font-family:Consolas,Monaco,monospace;font-size:13px;color:#7ee787;line-height:1.6}
+.ex{background:var(--panel2);border-left:3px solid var(--cyan);border-radius:0 9px 9px 0;padding:14px;margin:12px 0}
+.ex .q{font-weight:600;margin-bottom:8px}
+.ex .h{color:var(--dim);font-size:13px;margin-top:8px}
+.ex .h b{color:var(--yel)}
+textarea{width:100%;background:#010409;color:#7ee787;border:1px solid var(--line);border-radius:8px;padding:11px;font-family:Consolas,Monaco,monospace;font-size:13px;min-height:70px;resize:vertical}
+textarea:focus{outline:none;border-color:var(--cyan)}
+.row{display:flex;gap:8px;margin-top:9px;flex-wrap:wrap}
+.ok{color:var(--green);font-weight:600;margin-top:8px}
+.no{color:var(--red);font-weight:600;margin-top:8px}
+.nav{display:flex;gap:9px;margin-top:18px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:11px}
+.tcard{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:15px;text-align:center}
+.tcard:hover{border-color:var(--cyan)}
+.tcard.ok{border-color:var(--green)}
+.tcard .n{font-size:19px;font-weight:700;color:var(--cyan)}
+.tcard.ok .n{color:var(--green)}
+.tcard .t{font-size:12px;color:var(--dim);margin-top:5px}
+.gridlessons{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:11px}
+.lcard{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:15px;text-align:center}
+.lcard:hover{border-color:var(--cyan)}
+.lcard .n{font-size:22px;font-weight:700;color:var(--cyan)}
+.lcard .t{font-size:12px;color:var(--dim);margin:5px 0}
+.cert{text-align:center;padding:44px;background:linear-gradient(135deg,#161b22,#1f2937);border:2px solid var(--yel);border-radius:14px}
+.cert h2{color:var(--yel);font-size:28px}
+.cert p{color:var(--dim);margin:9px 0}
+@media(max-width:800px){#layout{flex-direction:column}aside{width:100%;height:auto;position:relative}#secList{max-height:210px}#body{padding:15px}.hero h2{font-size:27px}}
 </style>
 </head>
 <body>
-<div id="app">
-<nav class="sidebar">
-<div class="logo">
-<div class="logo-icon">🐍</div>
-<h1>Python Learn</h1>
-<p class="tagline">Curso interactivo gratuito</p>
-</div>
-<div class="stats">
-<div class="stat-item"><span class="stat-label">⭐</span><span class="stat-value" id="score">0</span></div>
-<div class="stat-item"><span class="stat-label">🔥</span><span class="stat-value" id="streak">0</span></div>
-<div class="stat-item"><span class="stat-label">📚</span><span class="stat-value" id="progress">0/0</span></div>
-</div>
-<div class="lesson-list" id="lessonList"></div>
-</nav>
-<main class="content">
-<div class="hero" id="hero">
-<div class="hero-card">
-<h2>🐍 Python Learn</h2>
-<p>Aprende Python con lecciones interactivas</p>
-<p class="hero-sub">90 lecciones | 14 proyectos | 100% gratis</p>
-<button onclick="startCourse()" class="btn-primary">▶ Empezar a aprender</button>
-<div style="margin-top:20px;color:#555;font-size:13px">Como Mimo, pero gratis y en tu navegador</div>
-</div>
-</div>
-<div class="lesson-view" id="lessonView" style="display:none">
-<div class="lesson-header">
-<button onclick="goBack()" class="btn-back">← Volver al inicio</button>
-<h2 id="lessonTitle"></h2>
-</div>
-<div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-<div class="lessons-grid" id="lessonsGrid"></div>
-<div id="lessonDetail" style="display:none"></div>
-</div>
+<div id="layout">
+<aside>
+  <div class="brand">
+    <div class="logo">&#128045;</div>
+    <h1>Python Learn</h1>
+    <small>Curso interactivo gratuito</small>
+  </div>
+  <div class="hud">
+    <div><b id="hScore">0</b><span>&#11088; Puntos</span></div>
+    <div><b id="hDone">0</b><span>&#128218; Temas</span></div>
+    <div><b id="hStreak">0</b><span>&#128293; Racha</span></div>
+  </div>
+  <div id="secList"></div>
+</aside>
+<main>
+  <div id="top">
+    <button class="ghost" onclick="goHome()">&#127968; Inicio</button>
+    <h2 id="ttl">Python Learn</h2>
+    <button class="ghost" onclick="showCert()">&#127942; Certificado</button>
+  </div>
+  <div class="bar"><div id="pfill" style="width:0%"></div></div>
+  <div id="body"></div>
 </main>
 </div>
-<script src="app.js"></script>
+<script>
+var COURSE = {"1": {"title": "Creating variables", "exercises": [{"question": "Create a variable 'name' with your name and print it", "answer": "name = \"Ana\"\nprint(name)", "hint": "Use assignment and print()"}], "topics": [{"title": "Nombres de variables", "description": "Elige nombres descriptivos para tus variables", "exercises": [{"question": "name = \"Ana\"\nprint(name)", "answer": "Use meaningful variable names", "hint": "Follow Python naming rules"}]}, {"title": "Valores de variables", "description": "Asigna diferentes tipos de datos", "exercises": [{"question": "age = 25\nheight = 1.70\nprint(age, height)", "answer": "Assign int, float, string", "hint": "Each variable holds one value"}]}, {"title": "Consola", "description": "Usa print() para mostrar valores", "exercises": [{"question": "print(\"Hello World\")", "answer": "Use print() function", "hint": "Text must be inside quotes"}]}]}, "2": {"title": "Using variables", "exercises": [{"question": "Create a=5 and b=3, print sum and difference", "answer": "a = 5\nb = 3\nprint(a + b)\nprint(a - b)", "hint": "Assign then use + and -"}], "topics": [{"title": "Operaciones con variables", "description": "Suma, resta, multiplica y divide", "exercises": [{"question": "a = 10\nb = 3\nprint(a + b, a - b, a * b, a / b)", "answer": "Use + - * / operators", "hint": "Operators work like math"}]}, {"title": "Reasignación", "description": "Cambia el valor de una variable", "exercises": [{"question": "x = 5\nx = 10\nprint(x)", "answer": "Just assign a new value", "hint": "Variables can change"}]}]}, "3": {"title": "True and False", "exercises": [{"question": "Create a boolean 'is_raining' and print it", "answer": "is_raining = True\nprint(is_raining)", "hint": "Use True or False"}], "topics": [{"title": "Verdadero y falso", "description": "Entiende los valores booleanos", "exercises": [{"question": "is_active = True\nprint(is_active)", "answer": "Use True or False (capital)", "hint": "Only two possible values"}]}, {"title": "Comparaciones booleanas", "description": "Compara valores para obtener True/False", "exercises": [{"question": "print(5 > 3)\nprint(5 == 5)\nprint(5 != 3)", "answer": "Use >, ==, != operators", "hint": "Comparison returns True or False"}]}]}, "4": {"title": "Equality and verification", "exercises": [{"question": "Check if 10 equals 10", "answer": "print(10 == 10)", "hint": "Use == for equality"}], "topics": [{"title": "Igualdad", "description": "Compara si dos valores son iguales", "exercises": [{"question": "print(10 == 10)\nprint(10 == 5)", "answer": "Use == for equality", "hint": "Double equals sign"}]}, {"title": "Desigualdad", "description": "Compara si valores son diferentes", "exercises": [{"question": "print(10 != 5)\nprint(10 != 10)", "answer": "Use != for inequality", "hint": "Not equal operator"}]}, {"title": "Mayor y menor", "description": "Compara tamaño de valores", "exercises": [{"question": "print(5 > 3)\nprint(3 < 5)\nprint(5 >= 5)", "answer": "Use >, <, >=, <=", "hint": "Greater than, less than operators"}]}]}, "5": {"title": "Format strings", "exercises": [{"question": "Create fruit variable, print 'I love <fruit>'", "answer": "fruit = \"apple\"\nprint(f\"I love {fruit}\")", "hint": "Use f-string"}], "topics": [{"title": "F-strings", "description": "Inserta variables dentro de texto", "exercises": [{"question": "name = \"Ana\"\nprint(f\"Hello {name}\")", "answer": "Use f before the string", "hint": "Curly braces {} hold variables"}]}, {"title": "Métodos de texto", "description": "Transforma strings con métodos", "exercises": [{"question": "text = \"hello\"\nprint(text.upper())\nprint(text.capitalize())", "answer": "Use .upper(), .lower(), .capitalize()", "hint": "Methods come after dot"}]}]}, "6": {"title": "Python basics", "exercises": [{"question": "Create name, age, city and print formatted", "answer": "name = \"Ana\"\nage = 25\ncity = \"Lima\"\nprint(f\"I am {name}, {age} from {city}\")", "hint": "Use f-strings"}], "type": "PRACTICE", "topics": [{"title": "Tipos de datos", "description": "Identifica int, float, bool, str", "exercises": [{"question": "print(type(10))\nprint(type(3.14))\nprint(type(True))\nprint(type(\"text\"))", "answer": "Use type() function", "hint": "Each type is different"}]}, {"title": "Conversiones", "description": "Convierte entre tipos de datos", "exercises": [{"question": "print(int(\"5\"))\nprint(float(3))\nprint(str(10))", "answer": "Use int(), float(), str()", "hint": "Convert between types"}]}, {"title": "Consolidación", "description": "Practica todos los conceptos básicos", "exercises": [{"question": "name = \"Ana\"\nage = 25\nprint(f\"{name} is {age}\")", "answer": "Combine all concepts", "hint": "Practice makes perfect"}]}]}, "7": {"title": "Bot - Part 1", "exercises": [{"question": "Build a bot that greets the user", "answer": "name = input(\"What is your name? \")\nprint(f\"Hello, {name}! Nice to meet you!\")\nprint(\"I am your Python bot. How can I help?\")", "hint": "Use input() and f-string"}], "type": "PROJECT_GUIDED", "project_part": 1, "project_code": "print('Bot: Hello!')\nname = input('Bot: What is your name? ')\nprint(f'Bot: Nice to meet you, {name}!')\nprint('I am your Python bot. How can I help?')\n", "topics": [{"title": "Saludo del bot", "description": "Crea un bot que saluda", "exercises": [{"question": "name = input(\"What is your name? \")\nprint(f\"Hello, {name}!\")", "answer": "Use input() and f-string", "hint": "input() gets user text"}]}, {"title": "Interacción básica", "description": "Haz que el bot responda", "exercises": [{"question": "name = input(\"Name: \")\nprint(f\"Nice to meet you, {name}!\")\nprint(\"I am your Python bot.\")", "answer": "Multiple print() calls", "hint": "Build a conversation flow"}]}]}, "8": {"title": "Comparing numbers", "exercises": [{"question": "Check if number is positive, negative, or zero", "answer": "num = int(input(\"Num: \"))\nif num > 0:\n    print(\"Positive\")\nelif num < 0:\n    print(\"Negative\")\nelse:\n    print(\"Zero\")", "hint": "Use if/elif/else"}]}, "9": {"title": "Comparing strings", "exercises": [{"question": "Ask for name, check if 'Ana'", "answer": "name = input(\"Your name: \")\nif name.lower() == \"ana\":\n    print(\"Hello Ana!\")\nelse:\n    print(f\"Hello {name}!\")", "hint": "Use .lower()"}]}, "10": {"title": "Discovering types", "exercises": [{"question": "Create vars of each type and print types", "answer": "x=10; y=\"hello\"; z=3.14; w=True\nprint(type(x)); print(type(y)); print(type(z)); print(type(w))", "hint": "Use type() function"}]}, "11": {"title": "Types and comparisons", "exercises": [{"question": "Ask two numbers, convert, print larger", "answer": "a = int(input(\"First: \")); b = int(input(\"Second: \"))\nif a > b: print(f\"{a} larger\")\nelif b > a: print(f\"{b} larger\")\nelse: print(\"Equal\")", "hint": "Use int() to convert"}], "type": "PRACTICE"}, "12": {"title": "Input", "exercises": [{"question": "Ask name and age, print greeting", "answer": "name = input(\"Your name: \")\nage = int(input(\"Your age: \"))\nprint(f\"Hello {name}! You are {age}.\"", "hint": "Use input() and f-string"}]}, "13": {"title": "Bot - Part 2", "exercises": [{"question": "Build interactive bot conversation", "answer": "print(\"Bot: Hello!\")\nname = input(\"Bot: What is your name? \")\nprint(f\"Bot: Nice to meet you, {name}!\")\nmood = input(\"Bot: How are you? \")\nif mood.lower() == \"good\":\n    print(\"Bot: Great!\")\nelse:\n    print(\"Bot: Hope you feel better!\")\nprint(f\"Bot: Goodbye {name}!\")", "hint": "Use input() and if/else"}], "type": "PROJECT_GUIDED", "project_part": 2, "project_code": "print('Bot: Hello!')\nname = input('Bot: What is your name? ')\nprint(f'Bot: Nice to meet you, {name}!')\nmood = input('Bot: How are you? ')\nif mood.lower() == 'good':\n    print('Bot: Great!')\nelse:\n    print('Bot: Hope you feel better!')\nprint(f'Bot: Goodbye {name}!')\n"}, "14": {"title": "Decision making", "exercises": [{"question": "Check if number is even or odd", "answer": "num = int(input(\"Num: \"))\nif num % 2 == 0:\n    print(\"Even\")\nelse:\n    print(\"Odd\")", "hint": "Use % modulo"}]}, "15": {"title": "Using conditions", "exercises": [{"question": "Check multiple criteria", "answer": "age = int(input(\"Age: \"))\nif age >= 18 and age < 65:\n    print(\"Working adult\")\nelif age >= 65:\n    print(\"Senior\")\nelse:\n    print(\"Minor\")", "hint": "Use and/or"}]}, "16": {"title": "Conditional statements 1", "exercises": [{"question": "Write access level checker", "answer": "level = input(\"Level (admin/user): \")\nif level.lower() == \"admin\":\n    print(\"Full access\")\nelse:\n    print(\"Limited access\")", "hint": "Use if/else with strings"}], "type": "PRACTICE"}, "17": {"title": "Coding Else statements", "exercises": [{"question": "Create calculator with if/elif/else", "answer": "op = input(\"Op (+,-,*,/): \")\na = float(input(\"A: \")); b = float(input(\"B: \"))\nif op == \"+\": print(a+b)\nelif op == \"-\": print(a-b)\nelif op == \"*\": print(a*b)\nelse: print(a/b)", "hint": "Chain if/elif/else"}]}, "18": {"title": "Adding Elif", "exercises": [{"question": "Create grading system", "answer": "score = int(input(\"Score: \"))\nif score >= 90: print(\"A\")\nelif score >= 80: print(\"B\")\nelif score >= 70: print(\"C\")\nelse: print(\"F\")", "hint": "Use elif for ranges"}]}, "19": {"title": "Using complex decisions", "exercises": [{"question": "Combine and/or/not", "answer": "temp = int(input(\"Temp: \")); rain = input(\"Rain? (yes/no): \")\nif temp > 30 and rain.lower() != \"yes\":\n    print(\"Hot and sunny!\")\nelif temp < 10 or rain.lower() == \"yes\":\n    print(\"Cold or rainy\")\nelse:\n    print(\"Pleasant\")", "hint": "Combine and/or/not"}]}, "20": {"title": "Conditional statements 2", "exercises": [{"question": "Create login checker", "answer": "user = input(\"Username: \"); p = input(\"Password: \")\nif user == \"admin\" and p == \"1234\":\n    print(\"Access granted\")\nelse:\n    print(\"Access denied\")", "hint": "Combine checks"}], "type": "PRACTICE"}, "21": {"title": "Rock Paper Scissors - Part 1", "exercises": [{"question": "Build RPS game logic", "answer": "import random\noptions = [\"rock\",\"paper\",\"scissors\"]\npc = random.choice(options)\nyou = input(\"rock/paper/scissors: \")\nprint(f\"PC: {pc}\")\nif you == pc: print(\"Tie!\")\nelif (you==\"rock\" and pc==\"scissors\") or (you==\"paper\" and pc==\"rock\") or (you==\"scissors\" and pc==\"paper\"):\n    print(\"You win!\")\nelse: print(\"PC wins!\")", "hint": "Use random.choice() and if/elif"}], "type": "PROJECT_GUIDED", "project_part": 1, "project_code": "import random\noptions = ['rock','paper','scissors']\npc = random.choice(options)\nyou = input('rock/paper/scissors: ')\nprint(f'PC: {pc}')\nif you == pc: print('Tie!')\nelif (you=='rock' and pc=='scissors') or (you=='paper' and pc=='rock') or (you=='scissors' and pc=='paper'):\n    print('You win!')\nelse: print('PC wins!')\n"}, "22": {"title": "Auto-assignment and operators", "exercises": [{"question": "Use +=, -=, *=", "answer": "x = 10\nx += 5\nx -= 3\nx *= 2\nprint(x)", "hint": "Use += -= *= operators"}]}, "23": {"title": "While loops", "exercises": [{"question": "Count from 1 to 5", "answer": "i = 1\nwhile i <= 5:\n    print(i)\n    i += 1", "hint": "Use while with counter"}]}, "24": {"title": "Stopping while loops", "exercises": [{"question": "Use break to stop early", "answer": "while True:\n    cmd = input(\"Enter (quit to stop): \")\n    if cmd == \"quit\": break\n    print(f\"You said: {cmd}\")\nprint(\"Loop stopped!\")", "hint": "Use break statement"}]}, "25": {"title": "Loops 1", "exercises": [{"question": "Sum 1 to 10 using while", "answer": "s = 0; i = 1\nwhile i <= 10:\n    s += i; i += 1\nprint(f\"Sum: {s}\")", "hint": "Use while and +="}], "type": "PRACTICE"}, "26": {"title": "While loop control", "exercises": [{"question": "Use continue and break", "answer": "i = 0\nwhile i < 10:\n    i += 1\n    if i % 2 == 0: continue\n    if i > 7: break\n    print(i)", "hint": "Use continue and break"}]}, "27": {"title": "For loops", "exercises": [{"question": "Iterate over a list", "answer": "fruits = [\"apple\",\"banana\",\"cherry\"]\nfor f in fruits:\n    print(f)", "hint": "Use for to iterate"}]}, "28": {"title": "Loops 2", "exercises": [{"question": "Find max in a list", "answer": "nums = [3,7,2,9,1]\nmax_val = nums[0]\nfor n in nums:\n    if n > max_val: max_val = n\nprint(f\"Max: {max_val}\")", "hint": "Use for loop with if"}], "type": "PRACTICE"}, "29": {"title": "Advanced loop control", "exercises": [{"question": "Use else clause with loops", "answer": "for i in range(5):\n    if i == 3: break\n    print(i)\nelse:\n    print(\"Completed!\")\nprint(\"Done!\")", "hint": "Use loop else clause"}]}, "30": {"title": "Loops 3", "exercises": [{"question": "Multiplication table", "answer": "for i in range(1, 6):\n    for j in range(1, 6):\n        print(f\"{i*j:4}\", end=\"\")\n    print()", "hint": "Use nested for loops"}], "type": "PRACTICE"}, "31": {"title": "Rock Paper Scissors - Part 2", "exercises": [{"question": "Play best of 3", "answer": "import random\noptions = [\"rock\",\"paper\",\"scissors\"]\nscore = 0\nfor _ in range(3):\n    pc = random.choice(options)\n    you = input(\"rock/paper/scissors: \")\n    if you == pc: print(\"Tie!\")\n    elif (you==\"rock\" and pc==\"scissors\") or (you==\"paper\" and pc==\"rock\") or (you==\"scissors\" and pc==\"paper\"):\n        score += 1; print(\"You win!\")\n    else: print(\"PC wins!\")\nprint(f\"Final: {score}/3\")", "hint": "Use for loop for 3 rounds"}], "type": "PROJECT_GUIDED", "project_part": 2, "project_code": "import random\noptions = ['rock','paper','scissors']\nscore = 0\nfor _ in range(3):\n    pc = random.choice(options)\n    you = input('rock/paper/scissors: ')\n    if you == pc: print('Tie!')\n    elif (you=='rock' and pc=='scissors') or (you=='paper' and pc=='rock') or (you=='scissors' and pc=='paper'):\n        score += 1; print('You win!')\n    else: print('PC wins!')\nprint(f'Final: {score}/3')\n"}, "32": {"title": "Grouping data in lists", "exercises": [{"question": "Create a list of 5 favorite foods", "answer": "foods = [\"pizza\",\"sushi\",\"tacos\",\"pasta\",\"burger\"]\nprint(foods)", "hint": "Create a list with []"}]}, "33": {"title": "Changing data in lists", "exercises": [{"question": "Change an element", "answer": "fruits = [\"apple\",\"banana\",\"cherry\"]\nfruits[1] = \"blueberry\"\nprint(fruits)", "hint": "Use index assignment"}]}, "34": {"title": "Updating lists", "exercises": [{"question": "Add and remove elements", "answer": "fruits = [\"apple\",\"banana\"]\nfruits.append(\"cherry\")\nfruits.insert(1, \"mango\")\nfruits.remove(\"banana\")\nprint(fruits)", "hint": "Use append/insert/remove"}]}, "35": {"title": "Organizing data 1", "exercises": [{"question": "Sort a list", "answer": "nums = [5,2,8,1,9]\nnums.sort()\nprint(nums)", "hint": "Use .sort()"}], "type": "PRACTICE"}, "36": {"title": "Looping over lists", "exercises": [{"question": "Process list elements", "answer": "numbers = [10,20,30,40,50]\nfor n in numbers:\n    print(n * 2)", "hint": "Use for to iterate"}]}, "37": {"title": "Deciding with lists", "exercises": [{"question": "Check if item exists", "answer": "fruits = [\"apple\",\"banana\",\"cherry\"]\nitem = input(\"Search: \")\nif item in fruits:\n    print(f\"{item} found!\")\nelse:\n    print(f\"{item} not found\")", "hint": "Use \"in\" operator"}]}, "38": {"title": "Organizing data 2", "exercises": [{"question": "Reverse and sort", "answer": "nums = [3,1,4,1,5,9]\nnums.reverse()\nnums.sort()\nprint(nums)", "hint": "Use .reverse() and .sort()"}], "type": "PRACTICE"}, "39": {"title": "To-Do List - Part 1", "exercises": [{"question": "Create a basic to-do list", "answer": "tasks = []\nwhile True:\n    task = input(\"Add task (or quit): \")\n    if task == \"quit\": break\n    tasks.append(task)\n    print(f\"Task added: {task}\")\nprint(f\"Total: {len(tasks)}\")", "hint": "Use list and while"}], "type": "PROJECT_GUIDED", "project_part": 1, "project_code": "tasks = []\nwhile True:\n    task = input('Add task (or quit): ')\n    if task == 'quit': break\n    tasks.append(task)\n    print(f'Task added: {task}')\nprint(f'Total: {len(tasks)}')\n"}, "40": {"title": "Finding extreme data", "exercises": [{"question": "Find max, min, average", "answer": "nums = [10,5,8,3,12]\nprint(f\"Max: {max(nums)}\")\nprint(f\"Min: {min(nums)}\")\nprint(f\"Avg: {sum(nums)/len(nums):.2f}\")", "hint": "Use max/min/sum/len"}]}, "41": {"title": "Sorting data", "exercises": [{"question": "Sort in different ways", "answer": "names = [\"Carlos\",\"Ana\",\"Bob\"]\nnames.sort()\nprint(names)\nnames.sort(reverse=True)\nprint(names)", "hint": "Use .sort() with reverse"}]}, "42": {"title": "Using Lists 1", "exercises": [{"question": "Grocery list analysis", "answer": "grocery = [\"milk\",\"eggs\",\"bread\",\"milk\",\"cheese\"]\nprint(f\"Total: {len(grocery)}\")\nprint(f\"Unique: {len(set(grocery))}\")", "hint": "Use len(), count(), set()"}], "type": "PRACTICE"}, "43": {"title": "Adding list elements", "exercises": [{"question": "Combine lists", "answer": "list1 = [1,2,3]\nlist2 = [4,5,6]\nlist1.extend(list2)\nprint(list1)", "hint": "Use extend() or +"}]}, "44": {"title": "Counting elements", "exercises": [{"question": "Count occurrences", "answer": "colors = [\"red\",\"blue\",\"red\",\"green\",\"red\"]\nprint(f\"Red: {colors.count('red')}\")", "hint": "Use .count() method"}]}, "45": {"title": "Using Lists 2", "exercises": [{"question": "Filter and transform", "answer": "nums = [1,2,3,4,5]\nevens = [n for n in nums if n % 2 == 0]\nprint(f\"Evens: {evens}\")", "hint": "Use list comprehension"}], "type": "PRACTICE"}, "46": {"title": "To-Do List - Part 2", "exercises": [{"question": "Add menu and delete tasks", "answer": "tasks = []\nwhile True:\n    print(\"\\n1.Add 2.Remove 3.Show 4.Quit\")\n    cmd = input(\"Choose: \")\n    if cmd == \"1\": tasks.append(input(\"Task: \"))\n    elif cmd == \"2\":\n        if tasks: tasks.pop(int(input(\"Num: \"))-1)\n    elif cmd == \"3\": print(tasks)\n    elif cmd == \"4\": break", "hint": "Use while with menu"}], "type": "PROJECT_GUIDED", "project_part": 2, "project_code": "tasks = []\nwhile True:\n    print('\\n1.Add 2.Remove 3.Show 4.Quit')\n    cmd = input('Choose: ')\n    if cmd == '1': tasks.append(input('Task: '))\n    elif cmd == '2':\n        if tasks: tasks.pop(int(input('Num: '))-1)\n    elif cmd == '3': print(tasks)\n    elif cmd == '4': break\n"}, "47": {"title": "Reusing code with functions", "exercises": [{"question": "Create a greet function", "answer": "def greet(name):\n    return f\"Hello, {name}!\"\nprint(greet(\"Ana\"))", "hint": "Use def and return"}]}, "48": {"title": "Creating parameters", "exercises": [{"question": "Create function with parameters", "answer": "def add(a, b):\n    return a + b\nprint(add(3, 5))", "hint": "Define parameters"}]}, "49": {"title": "Return values", "exercises": [{"question": "Return multiple values", "answer": "def stats(nums):\n    return max(nums), min(nums), sum(nums)/len(nums)\nm, n, avg = stats([1,2,3,4,5])", "hint": "Use return with multiple values"}]}, "50": {"title": "Using multiple parameters", "exercises": [{"question": "Function with many parameters", "answer": "def describe(name, age, city):\n    return f\"{name} is {age}, lives in {city}\"\nprint(describe(\"Ana\", 25, \"Lima\"))", "hint": "Use multiple parameters"}]}, "51": {"title": "Understanding functions", "exercises": [{"question": "Understand scope", "answer": "x = 10\ndef show():\n    x = 5\n    print(f\"Inside: {x}\")\nshow()\nprint(f\"Outside: {x}\")", "hint": "Local vs global scope"}]}, "52": {"title": "Functions 1", "exercises": [{"question": "Check if string is palindrome", "answer": "def is_palindrome(s):\n    return s == s[::-1]\nprint(is_palindrome(\"radar\"))", "hint": "Use slicing"}], "type": "PRACTICE"}, "53": {"title": "Food Ordering System - Part 1", "exercises": [{"question": "Build Italian food ordering", "answer": "menu = {\"pizza\": 10, \"pasta\": 8, \"salad\": 5}\nprint(\"Menu:\")\nfor item, price in menu.items():\n    print(f\"  {item}: ${price}\")\norder = input(\"What would you like? \")\nif order in menu:\n    print(f\"Your {order} costs ${menu[order]}\")\nelse:\n    print(\"Not on menu\")", "hint": "Use dict and for loop"}], "type": "PROJECT_GUIDED", "project_part": 1, "project_code": "menu = {'pizza': 10, 'pasta': 8, 'salad': 5}\nprint('Menu:')\nfor item, price in menu.items():\n    print(f'  {item}: ${price}')\norder = input('What would you like? ')\nif order in menu:\n    print(f'Your {order} costs ${menu[order]}')\nelse:\n    print('Not on menu')\n"}, "54": {"title": "Functions and variable scope", "exercises": [{"question": "Use global keyword", "answer": "count = 0\ndef increment():\n    global count\n    count += 1\nincrement()\nprint(count)", "hint": "Use global keyword"}]}, "55": {"title": "Deciding with functions", "exercises": [{"question": "If/else inside functions", "answer": "def access_level(age):\n    if age >= 18: return \"Adult\"\n    elif age >= 13: return \"Teen\"\n    else: return \"Child\"\nprint(access_level(25))", "hint": "Return from function"}]}, "56": {"title": "Functions with lists", "exercises": [{"question": "Process list in function", "answer": "def double_all(nums):\n    return [n * 2 for n in nums]\nprint(double_all([1,2,3]))", "hint": "Use list comprehension in function"}]}, "57": {"title": "Functions with loops", "exercises": [{"question": "Use loops inside functions", "answer": "def countdown(n):\n    while n > 0:\n        print(n)\n        n -= 1\ncountdown(5)", "hint": "Use while in function"}]}, "58": {"title": "Functions 2", "exercises": [{"question": "Calculate factorial", "answer": "def factorial(n):\n    result = 1\n    for i in range(1, n+1):\n        result *= i\n    return result\nprint(factorial(5))", "hint": "Use loop in function"}], "type": "PRACTICE"}, "59": {"title": "Food Ordering System - Part 2", "exercises": [{"question": "Add diverse cuisines", "answer": "cuisines = {\"italian\": {\"pizza\": 10, \"pasta\": 8}, \"mexican\": {\"taco\": 5, \"burrito\": 8}, \"japanese\": {\"sushi\": 12, \"ramen\": 9}}\nfor cuisine, items in cuisines.items():\n    print(f\"{cuisine.title()}:\")\n    for item, price in items.items():\n        print(f\"  {item}: ${price}\")\nprint(f\"Total: {len(cuisines)} cuisines\")", "hint": "Nested dicts and loops"}], "type": "PROJECT_GUIDED", "project_part": 2, "project_code": "cuisines = {'italian': {'pizza': 10, 'pasta': 8}, 'mexican': {'taco': 5, 'burrito': 8}, 'japanese': {'sushi': 12, 'ramen': 9}}\nfor cuisine, items in cuisines.items():\n    print(f'\\n{cuisine.title()}:')\n    for item, price in items.items():\n        print(f'  {item}: ${price}')\nprint(f'Total cuisines: {len(cuisines)}')\n"}, "60": {"title": "Creating tuples", "exercises": [{"question": "Create tuples", "answer": "point = (3, 4)\ncolors = (\"red\", \"blue\", \"green\")\nprint(point[0])", "hint": "Use () to create tuple"}]}, "61": {"title": "Tuples and lists", "exercises": [{"question": "Convert between tuples and lists", "answer": "t = (1, 2, 3)\nl = list(t)\nl.append(4)\nt2 = tuple(l)\nprint(t2)", "hint": "Use list() and tuple()"}]}, "62": {"title": "Returning tuples", "exercises": [{"question": "Return multiple values as tuple", "answer": "def get_min_max(nums):\n    return min(nums), max(nums)\nlo, hi = get_min_max([3,1,4,1,5])", "hint": "Use tuple unpacking"}]}, "63": {"title": "Creating dictionaries", "exercises": [{"question": "Create and access dicts", "answer": "person = {\"name\": \"Ana\", \"age\": 25}\nprint(person[\"name\"])\nperson[\"city\"] = \"Lima\"\nprint(person)", "hint": "Use {} and [] access"}]}, "64": {"title": "Using dictionaries", "exercises": [{"question": "Iterate over dicts", "answer": "student = {\"name\": \"Ana\", \"grade\": 90}\nfor key, val in student.items():\n    print(f\"{key}: {val}\")\nprint(f\"Keys: {list(student.keys())}\")", "hint": "Use .items(), .keys()"}]}, "65": {"title": "Tuples, dicts, sets 1", "exercises": [{"question": "Use all three structures", "answer": "scores = {\"Ana\": 90, \"Bob\": 85}\nsorted_scores = sorted(scores.items(), key=lambda x: x[1], reverse=True)\nprint(sorted_scores)\nunique_grades = set(scores.values())\nprint(unique_grades)", "hint": "Combine dict, tuple, set"}], "type": "PRACTICE"}, "66": {"title": "Draw a Card - Part 1", "exercises": [{"question": "Create virtual deck and draw cards", "answer": "import random\nsuits = [\"Hearts\", \"Diamonds\", \"Clubs\", \"Spades\"]\nranks = [\"A\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\",\"10\",\"J\",\"Q\",\"K\"]\ndeck = [(r, s) for s in suits for r in ranks]\nrandom.shuffle(deck)\nprint(f\"Deck has {len(deck)} cards\")\ncard = deck.pop()\nprint(f\"You drew: {card[0]} of {card[1]}\")", "hint": "Use list comprehension and random"}], "type": "PROJECT_GUIDED", "project_part": 1, "project_code": "import random\nsuits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']\nranks = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']\ndeck = [(r,s) for s in suits for r in ranks]\nrandom.shuffle(deck)\nprint(f'Deck has {len(deck)} cards')\ncard = deck.pop()\nprint(f'You drew: {card[0]} of {card[1]}')\n"}, "67": {"title": "Creating sets", "exercises": [{"question": "Create and use sets", "answer": "colors = {\"red\", \"blue\", \"green\"}\ncolors.add(\"yellow\")\ncolors.discard(\"blue\")\nprint(colors)", "hint": "Use {} for set"}]}, "68": {"title": "Using sets", "exercises": [{"question": "Set operations", "answer": "a = {1,2,3,4}\nb = {3,4,5,6}\nprint(f\"Union: {a | b}\")\nprint(f\"Intersection: {a & b}\")\nprint(f\"Difference: {a - b}\")", "hint": "Use | & - operators"}]}, "69": {"title": "Sets and lists", "exercises": [{"question": "Convert between sets and lists", "answer": "nums = [1,2,2,3,3,4]\nunique = list(set(nums))\nprint(unique)", "hint": "Use set() for dedup"}]}, "70": {"title": "Set operations", "exercises": [{"question": "Use set operations for data", "answer": "math = {\"Ana\", \"Bob\", \"Carlos\"}\nsci = {\"Bob\", \"Carlos\", \"Diana\"}\nprint(f\"Both: {math & sci}\")\nprint(f\"Only math: {math - sci}\")", "hint": "Use set operations"}]}, "71": {"title": "Draw a Card - Part 2", "exercises": [{"question": "Play card game with multiple draws", "answer": "import random\nsuits = [\"Hearts\",\"Diamonds\",\"Clubs\",\"Spades\"]\nranks = [\"A\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\",\"10\",\"J\",\"Q\",\"K\"]\nvalues = {str(i): i for i in range(2,11)}; values.update({\"A\":11,\"J\":10,\"Q\":10,\"K\":10})\ndeck = [(r,s) for s in suits for r in ranks]\nrandom.shuffle(deck)\ntotal = 0\nfor _ in range(2):\n    card = deck.pop()\n    total += values[card[0]]\n    print(f\"Drew {card[0]} of {card[1]} -> Total: {total}\")\nprint(f\"Final total: {total}\")", "hint": "Use for loop and dict lookup"}], "type": "PROJECT_GUIDED", "project_part": 2, "project_code": "import random\nsuits = ['Hearts','Diamonds','Clubs','Spades']\nranks = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']\nvalues = {str(i): i for i in range(2,11)}; values.update({'A':11,'J':10,'Q':10,'K':10})\ndeck = [(r,s) for s in suits for r in ranks]\nrandom.shuffle(deck)\ntotal = 0\nfor _ in range(2):\n    card = deck.pop()\n    total += values[card[0]]\n    print(f'Drew {card[0]} of {card[1]} -> Total: {total}')\nprint(f'Final total: {total}')\n"}, "72": {"title": "Modules", "exercises": [{"question": "Import and use a module", "answer": "import random\nprint(random.randint(1, 100))", "hint": "Use import statement"}]}, "73": {"title": "Modules", "exercises": [{"question": "Import specific functions", "answer": "from math import sqrt, pi\nprint(sqrt(16))\nprint(pi)", "hint": "Use from...import"}], "type": "PRACTICE"}, "74": {"title": "Creating your own modules", "exercises": [{"question": "Create and import custom module", "answer": "# In mymodule.py: def greet(name): return f\"Hello {name}!\"\n# In main.py: from mymodule import greet\n# print(greet(\"World\"))", "hint": "Create separate .py file"}]}, "75": {"title": "Organizing multi-file programs", "exercises": [{"question": "Split code into multiple files", "answer": "# config.py: API_KEY = \"abc\"\n# main.py: from config import API_KEY\n# print(API_KEY)", "hint": "Use import across files"}]}, "76": {"title": "Understanding Python packages", "exercises": [{"question": "Understand package structure", "answer": "# mypackage/__init__.py\n# mypackage/utils.py\n# from mypackage.utils import helper", "hint": "Understand __init__.py"}]}, "77": {"title": "Python modules", "exercises": [{"question": "Use os and sys modules", "answer": "import os, sys\nprint(os.getcwd())\nprint(sys.version)", "hint": "Import os and sys"}], "type": "PRACTICE"}, "78": {"title": "Installing third-party packages", "exercises": [{"question": "Install and use pip packages", "answer": "# pip install requests\nimport requests\n# response = requests.get(\"https://api.example.com\")", "hint": "Use pip to install"}]}, "79": {"title": "Managing package versions", "exercises": [{"question": "Check and manage versions", "answer": "import requests\nprint(requests.__version__)", "hint": "Use __version__"}]}, "80": {"title": "Python dependencies", "exercises": [{"question": "Create a requirements.txt", "answer": "# pip freeze > requirements.txt\n# pip install -r requirements.txt", "hint": "Use pip freeze and install"}], "type": "PRACTICE"}, "81": {"title": "Damage Calculator - Part 1", "exercises": [{"question": "Create damage calculator", "answer": "import random, math\nattack = random.randint(10, 50)\ndefense = random.randint(5, 25)\ndamage = max(0, attack - defense + math.floor(random.gauss(0, 5)))\nprint(f\"Attack: {attack}, Defense: {defense}, Damage: {damage}\")", "hint": "Use random, math modules"}], "type": "PROJECT_GUIDED", "project_part": 1, "project_code": "import random, math\nattack = random.randint(10, 50)\ndefense = random.randint(5, 25)\ndamage = max(0, attack - defense + math.floor(random.gauss(0, 5)))\nprint(f'Attack: {attack}, Defense: {defense}, Damage: {damage}')\n"}, "82": {"title": "Errors and exceptions", "exercises": [{"question": "Handle exceptions with try/except", "answer": "try:\n    x = int(input(\"Num: \"))\n    print(f\"You entered {x}\")\nexcept ValueError:\n    print(\"That was not a number!\")", "hint": "Use try/except"}]}, "83": {"title": "Raising exceptions", "exercises": [{"question": "Raise your own exceptions", "answer": "def divide(a, b):\n    if b == 0: raise ValueError(\"Cannot divide by zero\")\n    return a / b\ntry:\n    print(divide(10, 0))\nexcept ValueError as e:\n    print(f\"Error: {e}\")", "hint": "Use raise keyword"}]}, "84": {"title": "Errors and exceptions", "exercises": [{"question": "Create robust division function", "answer": "def safe_divide(a, b):\n    try:\n        return a / b\n    except ZeroDivisionError:\n        return None\n    except TypeError:\n        return \"Invalid input\"\nprint(safe_divide(10, 2))\nprint(safe_divide(10, 0))", "hint": "Use multiple except blocks"}], "type": "PRACTICE"}, "85": {"title": "Handling multiple exception types", "exercises": [{"question": "Handle different exception types", "answer": "try:\n    f = open(\"file.txt\")\n    data = f.read()\n    num = int(data)\nexcept FileNotFoundError:\n    print(\"File not found\")\nexcept ValueError:\n    print(\"Not a valid number\")\nfinally:\n    print(\"Cleanup done\")", "hint": "Multiple except blocks"}]}, "86": {"title": "Working with exception messages", "exercises": [{"question": "Create custom exception messages", "answer": "class NegativeError(Exception):\n    pass\ndef process(n):\n    if n < 0: raise NegativeError(f\"{n} is negative!\")\ntry:\n    process(-5)\nexcept NegativeError as e:\n    print(f\"Custom error: {e}\")", "hint": "Define custom exception class"}]}, "87": {"title": "Exception handling", "exercises": [{"question": "Create file reader with error handling", "answer": "def read_number(filename):\n    try:\n        with open(filename) as f:\n            return float(f.read().strip())\n    except FileNotFoundError:\n        print(\"File missing\")\n    except ValueError:\n        print(\"Not a number\")\n    return None\nprint(read_number(\"data.txt\"))", "hint": "Use try/except/finally with files"}], "type": "PRACTICE"}, "88": {"title": "Best practices in exception handling", "exercises": [{"question": "Follow best practices", "answer": "# Be specific with exception types\n# Never use bare except:\n# Use finally for cleanup", "hint": "Best practice patterns"}]}, "89": {"title": "Exceptions", "exercises": [{"question": "Create a robust calculator", "answer": "def calc(a, b, op):\n    try:\n        a, b = float(a), float(b)\n        if op == \"+\": return a+b\n        elif op == \"-\": return a-b\n        elif op == \"*\": return a*b\n        elif op == \"/\":\n            if b==0: raise ZeroDivisionError\n            return a/b\n        else: raise ValueError(f\"Unknown op: {op}\")\n    except (ValueError, ZeroDivisionError) as e:\n        return f\"Error: {e}\"\nprint(calc(10, 5, \"+\"))\nprint(calc(10, 0, \"/\"))", "hint": "Combine all error handling"}], "type": "PRACTICE"}, "90": {"title": "Sensor Reading Validator - Part 1", "exercises": [{"question": "Validate sensor readings", "answer": "import random\nclass InvalidReadingError(Exception):\n    pass\ndef read_sensor():\n    val = random.uniform(-10, 50)\n    if val < 0 or val > 40: raise InvalidReadingError(f\"Invalid reading: {val}\")\n    return val\nreadings = []\nfor i in range(10):\n    try:\n        r = read_sensor()\n        readings.append(r)\n        print(f\"Reading {i+1}: {r:.2f}\")\n    except InvalidReadingError as e: print(f\"Error: {e}\")\nif readings: print(f\"Valid readings: {len(readings)}/10\")", "hint": "Use custom exceptions and loops"}], "type": "PROJECT_GUIDED", "project_part": 1, "project_code": "import random\nclass InvalidReadingError(Exception):\n    pass\ndef read_sensor():\n    val = random.uniform(-10, 50)\n    if val < 0 or val > 40: raise InvalidReadingError(f'Invalid reading: {val}')\n    return val\nreadings = []\nfor i in range(10):\n    try:\n        r = read_sensor()\n        readings.append(r)\n        print(f'Reading {i+1}: {r:.2f}')\n    except InvalidReadingError as e: print(f'Error: {e}')\nif readings: print(f'Valid readings: {len(readings)}/10')\n"}};
+var SECS = [{"k": "learn", "n": "Nombres de variables", "ls": ["1", "2", "3", "4", "5", "6"]}, {"k": "project", "n": "Saludo del bot", "ls": ["7"]}, {"k": "learn", "n": "Comparing numbers", "ls": ["8", "9", "10", "11", "12"]}, {"k": "project", "n": "Bot - Part 2", "ls": ["13"]}, {"k": "learn", "n": "Decision making", "ls": ["14", "15", "16", "17", "18", "19", "20"]}, {"k": "project", "n": "Rock Paper Scissors - Part 1", "ls": ["21"]}, {"k": "learn", "n": "Auto-assignment and operators", "ls": ["22", "23", "24", "25", "26", "27", "28", "29", "30"]}, {"k": "project", "n": "Rock Paper Scissors - Part 2", "ls": ["31"]}, {"k": "learn", "n": "Grouping data in lists", "ls": ["32", "33", "34", "35", "36", "37", "38"]}, {"k": "project", "n": "To-Do List - Part 1", "ls": ["39"]}, {"k": "learn", "n": "Finding extreme data", "ls": ["40", "41", "42", "43", "44", "45"]}, {"k": "project", "n": "To-Do List - Part 2", "ls": ["46"]}, {"k": "learn", "n": "Reusing code with functions", "ls": ["47", "48", "49", "50", "51", "52"]}, {"k": "project", "n": "Food Ordering System - Part 1", "ls": ["53"]}, {"k": "learn", "n": "Functions and variable scope", "ls": ["54", "55", "56", "57", "58"]}, {"k": "project", "n": "Food Ordering System - Part 2", "ls": ["59"]}, {"k": "learn", "n": "Creating tuples", "ls": ["60", "61", "62", "63", "64", "65"]}, {"k": "project", "n": "Draw a Card - Part 1", "ls": ["66"]}, {"k": "learn", "n": "Creating sets", "ls": ["67", "68", "69", "70"]}, {"k": "project", "n": "Draw a Card - Part 2", "ls": ["71"]}, {"k": "learn", "n": "Modules", "ls": ["72", "73", "74", "75", "76", "77", "78", "79", "80"]}, {"k": "project", "n": "Damage Calculator - Part 1", "ls": ["81"]}, {"k": "learn", "n": "Errors and exceptions", "ls": ["82", "83", "84", "85", "86", "87", "88", "89"]}, {"k": "project", "n": "Sensor Reading Validator - Part 1", "ls": ["90"]}];
+var S = {done:[],score:0,streak:0};
+
+function loadS(){try{var s=localStorage.getItem('pl_v1');if(s)S=JSON.parse(s);}catch(e){}}
+function saveS(){try{localStorage.setItem('pl_v1',JSON.stringify(S));}catch(e){}}
+function topicsOf(l){return (l.topics&&l.topics.length)?l.topics:[{title:l.title,description:'',exercises:l.exercises||[]}];}
+function allItems(){var o=[];Object.keys(COURSE).sort(function(a,b){return a-b;}).forEach(function(id){topicsOf(COURSE[id]).forEach(function(t,i){o.push({lid:id,tid:i,lesson:COURSE[id],topic:t});});});return o;}
+function key(lid,tid){return lid+'_'+tid;}
+function badge(l){if(l.type==='PROJECT_GUIDED')return '<span class="badge b-proj">Proyecto guiado</span>';if(l.type==='PRACTICE')return '<span class="badge b-prac">Practica</span>';return '<span class="badge b-learn">Aprende</span>';}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function hud(){document.getElementById('hScore').textContent=S.score;document.getElementById('hStreak').textContent=S.streak;document.getElementById('hDone').textContent=S.done.length+'/'+allItems().length;document.getElementById('pfill').style.width=(S.done.length/allItems().length*100)+'%';}
+
+function nav(){
+  var h='';
+  SECS.forEach(function(sec){
+    var n=0;sec.ls.forEach(function(id){n+=topicsOf(COURSE[id]).length;});
+    var dn=0;sec.ls.forEach(function(id){topicsOf(COURSE[id]).forEach(function(t,i){if(S.done.indexOf(key(id,i))>-1)dn++;});});
+    h+='<div class="sec"><h3>'+(dn===n?'&#10004; ':'')+esc(sec.n)+' ('+dn+'/'+n+')</h3>';
+    sec.ls.forEach(function(id){
+      var l=COURSE[id],t=topicsOf(l);
+      var d=t.every(function(x,i){return S.done.indexOf(key(id,i))>-1;});
+      h+='<a href="#" data-g="l" data-id="'+id+'"><span class="dot'+(d?' done':'')+(l.type==='PROJECT_GUIDED'?' proj':'')+'"></span><span>'+id+'. '+esc(l.title)+'</span></a>';
+    });
+    h+='</div>';
+  });
+  document.getElementById('secList').innerHTML=h;
+  Array.prototype.forEach.call(document.querySelectorAll('#secList a'),function(a){
+    a.onclick=function(e){e.preventDefault();showLesson(a.dataset.id);};
+  });
+}
+
+function goHome(){
+  document.getElementById('ttl').textContent='Python Learn';
+  var n=allItems().length,p=S.done.length,r=Math.round(p/n*100);
+  document.getElementById('body').innerHTML =
+   '<div class="hero"><div class="logo" style="font-size:64px">&#128045;</div>'+
+   '<h2>Python Learn</h2><p>Curso interactivo de Python, gratis y en tu navegador</p>'+
+   '<p style="color:#22d3ee;font-weight:600">'+n+' temas &middot; 14 proyectos &middot; 100% gratis</p>'+
+   '<br><button class="btn" onclick="nextTopic()">&#9654; Empezar a aprender</button>'+
+   (p? '<p style="margin-top:18px;font-size:14px">Progreso: '+p+'/'+n+' ('+r+'%)</p>':'')+
+   '<p style="margin-top:26px;font-size:12px;color:#6e7b8c">Inspirado en Mimo &middot; offline, sin servidor</p></div>';
+  nav();hud();
+}
+
+function nextTopic(){
+  var it=allItems(),n=S.done.length;
+  for(var i=0;i<it.length;i++){if(S.done.indexOf(key(it[i].lid,it[i].tid))===-1){showTopic(it[i].lid,it[i].tid);return;}}
+  showCert();
+}
+
+function showLesson(id){
+  var l=COURSE[id],t=topicsOf(l);
+  document.getElementById('ttl').textContent=l.title;
+  var h='<div class="card"><h3>'+id+'. '+esc(l.title)+'</h3><div class="desc">'+badge(l)+'</div>'+
+        (l.project_code?'<p style="color:#8b98a9;font-size:14px;margin-top:10px">'+esc(l.project_code.split('\n')[0])+'</p>':'')+'</div><div class="grid">';
+  t.forEach(function(x,i){
+    var d=S.done.indexOf(key(id,i))>-1;
+    h+='<div class="tcard'+(d?' ok':'')+'" onclick="showTopic('+id+','+i+')"><div class="n">'+(d?'&#10004;':(i+1))+'</div><div class="t">'+esc(x.title)+'</div></div>';
+  });
+  h+='</div><div class="nav"><button class="btn" onclick="nextTopic()">Continuar &#9654;</button><button class="ghost" onclick="goHome()">Inicio</button></div>';
+  document.getElementById('body').innerHTML=h;nav();hud();
+}
+
+function showTopic(lid,tid){
+  var l=COURSE[lid],t=topicsOf(l)[tid];
+  document.getElementById('ttl').textContent=t.title;
+  var h='<div class="card"><h3>'+esc(t.title)+'</h3><div class="desc">'+badge(l)+' &middot; Leccion '+lid+', tema '+(tid+1)+'</div>'+
+        (t.description?'<p style="color:#8b98a9;font-size:14px;margin-top:10px">'+esc(t.description)+'</p>':'')+
+        (l.project_code?'<pre>'+esc(l.project_code)+'</pre>':'')+'</div>';
+  (t.exercises||[]).forEach(function(ex,i){
+    h+='<div class="ex"><div class="q">Ejercicio '+(i+1)+'</div><pre>'+esc(ex.question)+'</pre>'+
+       '<div class="h"><b>Pista:</b> '+esc(ex.hint)+'</div>'+
+       '<textarea id="ta'+i+'" placeholder="Escribe tu codigo Python aqui..."></textarea>'+
+       '<div class="row"><button class="btn" onclick="check('+lid+','+tid+','+i+')">Comprobar</button>'+
+       '<button class="ghost" onclick="reveal('+lid+','+tid+','+i+')">Ver respuesta</button></div>'+
+       '<div id="fb'+i+'"></div></div>';
+  });
+  h+='<div class="nav">';
+  if(tid>0)h+='<button class="ghost" onclick="showTopic('+lid+','+(tid-1)+')">&#8592; Tema anterior</button>';
+  h+='<button class="btn" onclick="afterTopic('+lid+','+tid+')">Marcar tema y continuar &#9654;</button></div>';
+  document.getElementById('body').innerHTML=h;nav();hud();
+  document.getElementById('body').scrollTop=0;
+}
+
+function norm(s){
+  return String(s).replace(/\s+/g,' ')
+    .replace(/["']/g,'"')
+    .replace(/\bprint\s*\(/g,'print(')
+    .replace(/\)\s*$/,'')
+    .trim().toLowerCase();
+}
+function keywords(s){
+  return String(s).replace(/["']/g,' ').replace(/[^a-zA-Z0-9_ ]/g,' ').split(/\s+/).filter(function(w){return w.length>2;});
+}
+
+function check(lid,tid,i){
+  var t=topicsOf(COURSE[lid])[tid],ex=t.exercises[i];
+  var user=document.getElementById('ta'+i).value;
+  var fb=document.getElementById('fb'+i);
+  if(!user.trim()){fb.innerHTML='<div class="no">Escribe algo primero</div>';return;}
+  var a=norm(ex.answer),b=norm(user);
+  var kw=keywords(ex.answer),uw=keywords(user);
+  var hit=kw.filter(function(w){return uw.indexOf(w)>-1;}).length;
+  var good=(a===b)||(a.indexOf(b)===0&&b.length>6)||(hit>=Math.max(1,Math.ceil(kw.length*0.7)));
+  if(good){
+    fb.innerHTML='<div class="ok">&#10004; Correcto! +5 puntos</div>';
+    var k=key(lid,tid);
+    if(S.done.indexOf(k)===-1){S.done.push(k);S.score+=5;S.streak++;saveS();}
+  }else{
+    fb.innerHTML='<div class="no">&#10007; Casi. Revisa la pista e intentalo de nuevo.</div>';
+  }
+  nav();hud();
+}
+
+function reveal(lid,tid,i){
+  var t=topicsOf(COURSE[lid])[tid],ex=t.exercises[i];
+  document.getElementById('fb'+i).innerHTML='<div class="h" style="margin-top:10px"><b>Respuesta:</b></div><pre>'+esc(ex.answer)+'</pre>';
+}
+
+function afterTopic(lid,tid){
+  var k=key(lid,tid);
+  if(S.done.indexOf(k)===-1){S.done.push(k);S.score+=5;S.streak++;saveS();}
+  var t=topicsOf(COURSE[lid]);
+  if(tid+1<t.length){showTopic(lid,tid+1);return;}
+  var ids=Object.keys(COURSE).sort(function(a,b){return a-b;});
+  var p=ids.indexOf(String(lid));
+  if(p>-1&&p+1<ids.length){showLesson(ids[p+1]);return;}
+  showCert();
+}
+
+function showCert(){
+  var it=allItems(),n=it.length,p=S.done.length;
+  if(p<n){
+    document.getElementById('ttl').textContent='Certificado';
+    document.getElementById('body').innerHTML='<div class="cert"><h2>&#128942; Todavia no</h2><p>Completa los '+n+' temas para obtener tu certificado</p><p style="color:#22d3ee;font-size:22px;font-weight:700">'+p+' / '+n+' ('+Math.round(p/n*100)+'%)</p><div class="nav" style="justify-content:center"><button class="btn" onclick="nextTopic()">Continuar aprendiendo</button></div></div>';
+    nav();hud();return;
+  }
+  document.getElementById('ttl').textContent='Certificado';
+  var d=new Date().toLocaleDateString('es');
+  document.getElementById('body').innerHTML='<div class="cert"><div style="font-size:56px">&#127942;</div><h2>Certificado de Finalizacion</h2><p>Se otorga a</p><h2 style="font-size:24px;color:#fff;margin:12px 0">&#128100; Crico719</h2><p>por completar el curso de <b style="color:#22d3ee">Python Learn</b></p><p>'+n+' temas &middot; 14 proyectos &middot; '+d+'</p><p style="margin-top:18px;font-size:12px">Puntaje final: '+S.score+' puntos</p><div class="nav" style="justify-content:center"><button class="ghost" onclick="resetAll()">Reiniciar progreso</button></div></div>';
+  nav();hud();
+}
+
+function resetAll(){
+  if(confirm('Borrar todo tu progreso?')){S={done:[],score:0,streak:0};saveS();goHome();}
+}
+
+loadS();goHome();
+</script>
 </body>
 </html>
