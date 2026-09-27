@@ -7,6 +7,41 @@
         "answer": "name = \"Ana\"\nprint(name)",
         "hint": "Use assignment and print()"
       }
+    ],
+    "topics": [
+      {
+        "title": "Nombres de variables",
+        "description": "Elige nombres descriptivos para tus variables",
+        "exercises": [
+          {
+            "question": "name = \"Ana\"\nprint(name)",
+            "answer": "Use meaningful variable names",
+            "hint": "Follow Python naming rules"
+          }
+        ]
+      },
+      {
+        "title": "Valores de variables",
+        "description": "Asigna diferentes tipos de datos",
+        "exercises": [
+          {
+            "question": "age = 25\nheight = 1.70\nprint(age, height)",
+            "answer": "Assign int, float, string",
+            "hint": "Each variable holds one value"
+          }
+        ]
+      },
+      {
+        "title": "Consola",
+        "description": "Usa print() para mostrar valores",
+        "exercises": [
+          {
+            "question": "print(\"Hello World\")",
+            "answer": "Use print() function",
+            "hint": "Text must be inside quotes"
+          }
+        ]
+      }
     ]
   },
   "2": {
@@ -16,6 +51,30 @@
         "question": "Create a=5 and b=3, print sum and difference",
         "answer": "a = 5\nb = 3\nprint(a + b)\nprint(a - b)",
         "hint": "Assign then use + and -"
+      }
+    ],
+    "topics": [
+      {
+        "title": "Operaciones con variables",
+        "description": "Suma, resta, multiplica y divide",
+        "exercises": [
+          {
+            "question": "a = 10\nb = 3\nprint(a + b, a - b, a * b, a / b)",
+            "answer": "Use + - * / operators",
+            "hint": "Operators work like math"
+          }
+        ]
+      },
+      {
+        "title": "Reasignación",
+        "description": "Cambia el valor de una variable",
+        "exercises": [
+          {
+            "question": "x = 5\nx = 10\nprint(x)",
+            "answer": "Just assign a new value",
+            "hint": "Variables can change"
+          }
+        ]
       }
     ]
   },
@@ -27,6 +86,30 @@
         "answer": "is_raining = True\nprint(is_raining)",
         "hint": "Use True or False"
       }
+    ],
+    "topics": [
+      {
+        "title": "Verdadero y falso",
+        "description": "Entiende los valores booleanos",
+        "exercises": [
+          {
+            "question": "is_active = True\nprint(is_active)",
+            "answer": "Use True or False (capital)",
+            "hint": "Only two possible values"
+          }
+        ]
+      },
+      {
+        "title": "Comparaciones booleanas",
+        "description": "Compara valores para obtener True/False",
+        "exercises": [
+          {
+            "question": "print(5 > 3)\nprint(5 == 5)\nprint(5 != 3)",
+            "answer": "Use >, ==, != operators",
+            "hint": "Comparison returns True or False"
+          }
+        ]
+      }
     ]
   },
   "4": {
@@ -37,6 +120,41 @@
         "answer": "print(10 == 10)",
         "hint": "Use == for equality"
       }
+    ],
+    "topics": [
+      {
+        "title": "Igualdad",
+        "description": "Compara si dos valores son iguales",
+        "exercises": [
+          {
+            "question": "print(10 == 10)\nprint(10 == 5)",
+            "answer": "Use == for equality",
+            "hint": "Double equals sign"
+          }
+        ]
+      },
+      {
+        "title": "Desigualdad",
+        "description": "Compara si valores son diferentes",
+        "exercises": [
+          {
+            "question": "print(10 != 5)\nprint(10 != 10)",
+            "answer": "Use != for inequality",
+            "hint": "Not equal operator"
+          }
+        ]
+      },
+      {
+        "title": "Mayor y menor",
+        "description": "Compara tamaño de valores",
+        "exercises": [
+          {
+            "question": "print(5 > 3)\nprint(3 < 5)\nprint(5 >= 5)",
+            "answer": "Use >, <, >=, <=",
+            "hint": "Greater than, less than operators"
+          }
+        ]
+      }
     ]
   },
   "5": {
@@ -46,6 +164,30 @@
         "question": "Create fruit variable, print 'I love <fruit>'",
         "answer": "fruit = \"apple\"\nprint(f\"I love {fruit}\")",
         "hint": "Use f-string"
+      }
+    ],
+    "topics": [
+      {
+        "title": "F-strings",
+        "description": "Inserta variables dentro de texto",
+        "exercises": [
+          {
+            "question": "name = \"Ana\"\nprint(f\"Hello {name}\")",
+            "answer": "Use f before the string",
+            "hint": "Curly braces {} hold variables"
+          }
+        ]
+      },
+      {
+        "title": "Métodos de texto",
+        "description": "Transforma strings con métodos",
+        "exercises": [
+          {
+            "question": "text = \"hello\"\nprint(text.upper())\nprint(text.capitalize())",
+            "answer": "Use .upper(), .lower(), .capitalize()",
+            "hint": "Methods come after dot"
+          }
+        ]
       }
     ]
   },
@@ -58,7 +200,42 @@
         "hint": "Use f-strings"
       }
     ],
-    "type": "PRACTICE"
+    "type": "PRACTICE",
+    "topics": [
+      {
+        "title": "Tipos de datos",
+        "description": "Identifica int, float, bool, str",
+        "exercises": [
+          {
+            "question": "print(type(10))\nprint(type(3.14))\nprint(type(True))\nprint(type(\"text\"))",
+            "answer": "Use type() function",
+            "hint": "Each type is different"
+          }
+        ]
+      },
+      {
+        "title": "Conversiones",
+        "description": "Convierte entre tipos de datos",
+        "exercises": [
+          {
+            "question": "print(int(\"5\"))\nprint(float(3))\nprint(str(10))",
+            "answer": "Use int(), float(), str()",
+            "hint": "Convert between types"
+          }
+        ]
+      },
+      {
+        "title": "Consolidación",
+        "description": "Practica todos los conceptos básicos",
+        "exercises": [
+          {
+            "question": "name = \"Ana\"\nage = 25\nprint(f\"{name} is {age}\")",
+            "answer": "Combine all concepts",
+            "hint": "Practice makes perfect"
+          }
+        ]
+      }
+    ]
   },
   "7": {
     "title": "Bot - Part 1",
@@ -71,7 +248,31 @@
     ],
     "type": "PROJECT_GUIDED",
     "project_part": 1,
-    "project_code": "print('Bot: Hello!')\nname = input('Bot: What is your name? ')\nprint(f'Bot: Nice to meet you, {name}!')\nprint('I am your Python bot. How can I help?')\n"
+    "project_code": "print('Bot: Hello!')\nname = input('Bot: What is your name? ')\nprint(f'Bot: Nice to meet you, {name}!')\nprint('I am your Python bot. How can I help?')\n",
+    "topics": [
+      {
+        "title": "Saludo del bot",
+        "description": "Crea un bot que saluda",
+        "exercises": [
+          {
+            "question": "name = input(\"What is your name? \")\nprint(f\"Hello, {name}!\")",
+            "answer": "Use input() and f-string",
+            "hint": "input() gets user text"
+          }
+        ]
+      },
+      {
+        "title": "Interacción básica",
+        "description": "Haz que el bot responda",
+        "exercises": [
+          {
+            "question": "name = input(\"Name: \")\nprint(f\"Nice to meet you, {name}!\")\nprint(\"I am your Python bot.\")",
+            "answer": "Multiple print() calls",
+            "hint": "Build a conversation flow"
+          }
+        ]
+      }
+    ]
   },
   "8": {
     "title": "Comparing numbers",
