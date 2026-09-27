@@ -1,0 +1,958 @@
+{
+  "1": {
+    "title": "Creating variables",
+    "exercises": [
+      {
+        "question": "Create a variable 'name' with your name and print it",
+        "answer": "name = \"Ana\"\nprint(name)",
+        "hint": "Use assignment and print()"
+      }
+    ]
+  },
+  "2": {
+    "title": "Using variables",
+    "exercises": [
+      {
+        "question": "Create a=5 and b=3, print sum and difference",
+        "answer": "a = 5\nb = 3\nprint(a + b)\nprint(a - b)",
+        "hint": "Assign then use + and -"
+      }
+    ]
+  },
+  "3": {
+    "title": "True and False",
+    "exercises": [
+      {
+        "question": "Create a boolean 'is_raining' and print it",
+        "answer": "is_raining = True\nprint(is_raining)",
+        "hint": "Use True or False"
+      }
+    ]
+  },
+  "4": {
+    "title": "Equality and verification",
+    "exercises": [
+      {
+        "question": "Check if 10 equals 10",
+        "answer": "print(10 == 10)",
+        "hint": "Use == for equality"
+      }
+    ]
+  },
+  "5": {
+    "title": "Format strings",
+    "exercises": [
+      {
+        "question": "Create fruit variable, print 'I love <fruit>'",
+        "answer": "fruit = \"apple\"\nprint(f\"I love {fruit}\")",
+        "hint": "Use f-string"
+      }
+    ]
+  },
+  "6": {
+    "title": "Python basics",
+    "exercises": [
+      {
+        "question": "Create name, age, city and print formatted",
+        "answer": "name = \"Ana\"\nage = 25\ncity = \"Lima\"\nprint(f\"I am {name}, {age} from {city}\")",
+        "hint": "Use f-strings"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "7": {
+    "title": "Bot - Part 1",
+    "exercises": [
+      {
+        "question": "Build a bot that greets the user",
+        "answer": "name = input(\"What is your name? \")\nprint(f\"Hello, {name}! Nice to meet you!\")\nprint(\"I am your Python bot. How can I help?\")",
+        "hint": "Use input() and f-string"
+      }
+    ],
+    "type": "PROJECT_GUIDED",
+    "project_part": 1,
+    "project_code": "print('Bot: Hello!')\nname = input('Bot: What is your name? ')\nprint(f'Bot: Nice to meet you, {name}!')\nprint('I am your Python bot. How can I help?')\n"
+  },
+  "8": {
+    "title": "Comparing numbers",
+    "exercises": [
+      {
+        "question": "Check if number is positive, negative, or zero",
+        "answer": "num = int(input(\"Num: \"))\nif num > 0:\n    print(\"Positive\")\nelif num < 0:\n    print(\"Negative\")\nelse:\n    print(\"Zero\")",
+        "hint": "Use if/elif/else"
+      }
+    ]
+  },
+  "9": {
+    "title": "Comparing strings",
+    "exercises": [
+      {
+        "question": "Ask for name, check if 'Ana'",
+        "answer": "name = input(\"Your name: \")\nif name.lower() == \"ana\":\n    print(\"Hello Ana!\")\nelse:\n    print(f\"Hello {name}!\")",
+        "hint": "Use .lower()"
+      }
+    ]
+  },
+  "10": {
+    "title": "Discovering types",
+    "exercises": [
+      {
+        "question": "Create vars of each type and print types",
+        "answer": "x=10; y=\"hello\"; z=3.14; w=True\nprint(type(x)); print(type(y)); print(type(z)); print(type(w))",
+        "hint": "Use type() function"
+      }
+    ]
+  },
+  "11": {
+    "title": "Types and comparisons",
+    "exercises": [
+      {
+        "question": "Ask two numbers, convert, print larger",
+        "answer": "a = int(input(\"First: \")); b = int(input(\"Second: \"))\nif a > b: print(f\"{a} larger\")\nelif b > a: print(f\"{b} larger\")\nelse: print(\"Equal\")",
+        "hint": "Use int() to convert"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "12": {
+    "title": "Input",
+    "exercises": [
+      {
+        "question": "Ask name and age, print greeting",
+        "answer": "name = input(\"Your name: \")\nage = int(input(\"Your age: \"))\nprint(f\"Hello {name}! You are {age}.\"",
+        "hint": "Use input() and f-string"
+      }
+    ]
+  },
+  "13": {
+    "title": "Bot - Part 2",
+    "exercises": [
+      {
+        "question": "Build interactive bot conversation",
+        "answer": "print(\"Bot: Hello!\")\nname = input(\"Bot: What is your name? \")\nprint(f\"Bot: Nice to meet you, {name}!\")\nmood = input(\"Bot: How are you? \")\nif mood.lower() == \"good\":\n    print(\"Bot: Great!\")\nelse:\n    print(\"Bot: Hope you feel better!\")\nprint(f\"Bot: Goodbye {name}!\")",
+        "hint": "Use input() and if/else"
+      }
+    ],
+    "type": "PROJECT_GUIDED",
+    "project_part": 2,
+    "project_code": "print('Bot: Hello!')\nname = input('Bot: What is your name? ')\nprint(f'Bot: Nice to meet you, {name}!')\nmood = input('Bot: How are you? ')\nif mood.lower() == 'good':\n    print('Bot: Great!')\nelse:\n    print('Bot: Hope you feel better!')\nprint(f'Bot: Goodbye {name}!')\n"
+  },
+  "14": {
+    "title": "Decision making",
+    "exercises": [
+      {
+        "question": "Check if number is even or odd",
+        "answer": "num = int(input(\"Num: \"))\nif num % 2 == 0:\n    print(\"Even\")\nelse:\n    print(\"Odd\")",
+        "hint": "Use % modulo"
+      }
+    ]
+  },
+  "15": {
+    "title": "Using conditions",
+    "exercises": [
+      {
+        "question": "Check multiple criteria",
+        "answer": "age = int(input(\"Age: \"))\nif age >= 18 and age < 65:\n    print(\"Working adult\")\nelif age >= 65:\n    print(\"Senior\")\nelse:\n    print(\"Minor\")",
+        "hint": "Use and/or"
+      }
+    ]
+  },
+  "16": {
+    "title": "Conditional statements 1",
+    "exercises": [
+      {
+        "question": "Write access level checker",
+        "answer": "level = input(\"Level (admin/user): \")\nif level.lower() == \"admin\":\n    print(\"Full access\")\nelse:\n    print(\"Limited access\")",
+        "hint": "Use if/else with strings"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "17": {
+    "title": "Coding Else statements",
+    "exercises": [
+      {
+        "question": "Create calculator with if/elif/else",
+        "answer": "op = input(\"Op (+,-,*,/): \")\na = float(input(\"A: \")); b = float(input(\"B: \"))\nif op == \"+\": print(a+b)\nelif op == \"-\": print(a-b)\nelif op == \"*\": print(a*b)\nelse: print(a/b)",
+        "hint": "Chain if/elif/else"
+      }
+    ]
+  },
+  "18": {
+    "title": "Adding Elif",
+    "exercises": [
+      {
+        "question": "Create grading system",
+        "answer": "score = int(input(\"Score: \"))\nif score >= 90: print(\"A\")\nelif score >= 80: print(\"B\")\nelif score >= 70: print(\"C\")\nelse: print(\"F\")",
+        "hint": "Use elif for ranges"
+      }
+    ]
+  },
+  "19": {
+    "title": "Using complex decisions",
+    "exercises": [
+      {
+        "question": "Combine and/or/not",
+        "answer": "temp = int(input(\"Temp: \")); rain = input(\"Rain? (yes/no): \")\nif temp > 30 and rain.lower() != \"yes\":\n    print(\"Hot and sunny!\")\nelif temp < 10 or rain.lower() == \"yes\":\n    print(\"Cold or rainy\")\nelse:\n    print(\"Pleasant\")",
+        "hint": "Combine and/or/not"
+      }
+    ]
+  },
+  "20": {
+    "title": "Conditional statements 2",
+    "exercises": [
+      {
+        "question": "Create login checker",
+        "answer": "user = input(\"Username: \"); p = input(\"Password: \")\nif user == \"admin\" and p == \"1234\":\n    print(\"Access granted\")\nelse:\n    print(\"Access denied\")",
+        "hint": "Combine checks"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "21": {
+    "title": "Rock Paper Scissors - Part 1",
+    "exercises": [
+      {
+        "question": "Build RPS game logic",
+        "answer": "import random\noptions = [\"rock\",\"paper\",\"scissors\"]\npc = random.choice(options)\nyou = input(\"rock/paper/scissors: \")\nprint(f\"PC: {pc}\")\nif you == pc: print(\"Tie!\")\nelif (you==\"rock\" and pc==\"scissors\") or (you==\"paper\" and pc==\"rock\") or (you==\"scissors\" and pc==\"paper\"):\n    print(\"You win!\")\nelse: print(\"PC wins!\")",
+        "hint": "Use random.choice() and if/elif"
+      }
+    ],
+    "type": "PROJECT_GUIDED",
+    "project_part": 1,
+    "project_code": "import random\noptions = ['rock','paper','scissors']\npc = random.choice(options)\nyou = input('rock/paper/scissors: ')\nprint(f'PC: {pc}')\nif you == pc: print('Tie!')\nelif (you=='rock' and pc=='scissors') or (you=='paper' and pc=='rock') or (you=='scissors' and pc=='paper'):\n    print('You win!')\nelse: print('PC wins!')\n"
+  },
+  "22": {
+    "title": "Auto-assignment and operators",
+    "exercises": [
+      {
+        "question": "Use +=, -=, *=",
+        "answer": "x = 10\nx += 5\nx -= 3\nx *= 2\nprint(x)",
+        "hint": "Use += -= *= operators"
+      }
+    ]
+  },
+  "23": {
+    "title": "While loops",
+    "exercises": [
+      {
+        "question": "Count from 1 to 5",
+        "answer": "i = 1\nwhile i <= 5:\n    print(i)\n    i += 1",
+        "hint": "Use while with counter"
+      }
+    ]
+  },
+  "24": {
+    "title": "Stopping while loops",
+    "exercises": [
+      {
+        "question": "Use break to stop early",
+        "answer": "while True:\n    cmd = input(\"Enter (quit to stop): \")\n    if cmd == \"quit\": break\n    print(f\"You said: {cmd}\")\nprint(\"Loop stopped!\")",
+        "hint": "Use break statement"
+      }
+    ]
+  },
+  "25": {
+    "title": "Loops 1",
+    "exercises": [
+      {
+        "question": "Sum 1 to 10 using while",
+        "answer": "s = 0; i = 1\nwhile i <= 10:\n    s += i; i += 1\nprint(f\"Sum: {s}\")",
+        "hint": "Use while and +="
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "26": {
+    "title": "While loop control",
+    "exercises": [
+      {
+        "question": "Use continue and break",
+        "answer": "i = 0\nwhile i < 10:\n    i += 1\n    if i % 2 == 0: continue\n    if i > 7: break\n    print(i)",
+        "hint": "Use continue and break"
+      }
+    ]
+  },
+  "27": {
+    "title": "For loops",
+    "exercises": [
+      {
+        "question": "Iterate over a list",
+        "answer": "fruits = [\"apple\",\"banana\",\"cherry\"]\nfor f in fruits:\n    print(f)",
+        "hint": "Use for to iterate"
+      }
+    ]
+  },
+  "28": {
+    "title": "Loops 2",
+    "exercises": [
+      {
+        "question": "Find max in a list",
+        "answer": "nums = [3,7,2,9,1]\nmax_val = nums[0]\nfor n in nums:\n    if n > max_val: max_val = n\nprint(f\"Max: {max_val}\")",
+        "hint": "Use for loop with if"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "29": {
+    "title": "Advanced loop control",
+    "exercises": [
+      {
+        "question": "Use else clause with loops",
+        "answer": "for i in range(5):\n    if i == 3: break\n    print(i)\nelse:\n    print(\"Completed!\")\nprint(\"Done!\")",
+        "hint": "Use loop else clause"
+      }
+    ]
+  },
+  "30": {
+    "title": "Loops 3",
+    "exercises": [
+      {
+        "question": "Multiplication table",
+        "answer": "for i in range(1, 6):\n    for j in range(1, 6):\n        print(f\"{i*j:4}\", end=\"\")\n    print()",
+        "hint": "Use nested for loops"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "31": {
+    "title": "Rock Paper Scissors - Part 2",
+    "exercises": [
+      {
+        "question": "Play best of 3",
+        "answer": "import random\noptions = [\"rock\",\"paper\",\"scissors\"]\nscore = 0\nfor _ in range(3):\n    pc = random.choice(options)\n    you = input(\"rock/paper/scissors: \")\n    if you == pc: print(\"Tie!\")\n    elif (you==\"rock\" and pc==\"scissors\") or (you==\"paper\" and pc==\"rock\") or (you==\"scissors\" and pc==\"paper\"):\n        score += 1; print(\"You win!\")\n    else: print(\"PC wins!\")\nprint(f\"Final: {score}/3\")",
+        "hint": "Use for loop for 3 rounds"
+      }
+    ],
+    "type": "PROJECT_GUIDED",
+    "project_part": 2,
+    "project_code": "import random\noptions = ['rock','paper','scissors']\nscore = 0\nfor _ in range(3):\n    pc = random.choice(options)\n    you = input('rock/paper/scissors: ')\n    if you == pc: print('Tie!')\n    elif (you=='rock' and pc=='scissors') or (you=='paper' and pc=='rock') or (you=='scissors' and pc=='paper'):\n        score += 1; print('You win!')\n    else: print('PC wins!')\nprint(f'Final: {score}/3')\n"
+  },
+  "32": {
+    "title": "Grouping data in lists",
+    "exercises": [
+      {
+        "question": "Create a list of 5 favorite foods",
+        "answer": "foods = [\"pizza\",\"sushi\",\"tacos\",\"pasta\",\"burger\"]\nprint(foods)",
+        "hint": "Create a list with []"
+      }
+    ]
+  },
+  "33": {
+    "title": "Changing data in lists",
+    "exercises": [
+      {
+        "question": "Change an element",
+        "answer": "fruits = [\"apple\",\"banana\",\"cherry\"]\nfruits[1] = \"blueberry\"\nprint(fruits)",
+        "hint": "Use index assignment"
+      }
+    ]
+  },
+  "34": {
+    "title": "Updating lists",
+    "exercises": [
+      {
+        "question": "Add and remove elements",
+        "answer": "fruits = [\"apple\",\"banana\"]\nfruits.append(\"cherry\")\nfruits.insert(1, \"mango\")\nfruits.remove(\"banana\")\nprint(fruits)",
+        "hint": "Use append/insert/remove"
+      }
+    ]
+  },
+  "35": {
+    "title": "Organizing data 1",
+    "exercises": [
+      {
+        "question": "Sort a list",
+        "answer": "nums = [5,2,8,1,9]\nnums.sort()\nprint(nums)",
+        "hint": "Use .sort()"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "36": {
+    "title": "Looping over lists",
+    "exercises": [
+      {
+        "question": "Process list elements",
+        "answer": "numbers = [10,20,30,40,50]\nfor n in numbers:\n    print(n * 2)",
+        "hint": "Use for to iterate"
+      }
+    ]
+  },
+  "37": {
+    "title": "Deciding with lists",
+    "exercises": [
+      {
+        "question": "Check if item exists",
+        "answer": "fruits = [\"apple\",\"banana\",\"cherry\"]\nitem = input(\"Search: \")\nif item in fruits:\n    print(f\"{item} found!\")\nelse:\n    print(f\"{item} not found\")",
+        "hint": "Use \"in\" operator"
+      }
+    ]
+  },
+  "38": {
+    "title": "Organizing data 2",
+    "exercises": [
+      {
+        "question": "Reverse and sort",
+        "answer": "nums = [3,1,4,1,5,9]\nnums.reverse()\nnums.sort()\nprint(nums)",
+        "hint": "Use .reverse() and .sort()"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "39": {
+    "title": "To-Do List - Part 1",
+    "exercises": [
+      {
+        "question": "Create a basic to-do list",
+        "answer": "tasks = []\nwhile True:\n    task = input(\"Add task (or quit): \")\n    if task == \"quit\": break\n    tasks.append(task)\n    print(f\"Task added: {task}\")\nprint(f\"Total: {len(tasks)}\")",
+        "hint": "Use list and while"
+      }
+    ],
+    "type": "PROJECT_GUIDED",
+    "project_part": 1,
+    "project_code": "tasks = []\nwhile True:\n    task = input('Add task (or quit): ')\n    if task == 'quit': break\n    tasks.append(task)\n    print(f'Task added: {task}')\nprint(f'Total: {len(tasks)}')\n"
+  },
+  "40": {
+    "title": "Finding extreme data",
+    "exercises": [
+      {
+        "question": "Find max, min, average",
+        "answer": "nums = [10,5,8,3,12]\nprint(f\"Max: {max(nums)}\")\nprint(f\"Min: {min(nums)}\")\nprint(f\"Avg: {sum(nums)/len(nums):.2f}\")",
+        "hint": "Use max/min/sum/len"
+      }
+    ]
+  },
+  "41": {
+    "title": "Sorting data",
+    "exercises": [
+      {
+        "question": "Sort in different ways",
+        "answer": "names = [\"Carlos\",\"Ana\",\"Bob\"]\nnames.sort()\nprint(names)\nnames.sort(reverse=True)\nprint(names)",
+        "hint": "Use .sort() with reverse"
+      }
+    ]
+  },
+  "42": {
+    "title": "Using Lists 1",
+    "exercises": [
+      {
+        "question": "Grocery list analysis",
+        "answer": "grocery = [\"milk\",\"eggs\",\"bread\",\"milk\",\"cheese\"]\nprint(f\"Total: {len(grocery)}\")\nprint(f\"Unique: {len(set(grocery))}\")",
+        "hint": "Use len(), count(), set()"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "43": {
+    "title": "Adding list elements",
+    "exercises": [
+      {
+        "question": "Combine lists",
+        "answer": "list1 = [1,2,3]\nlist2 = [4,5,6]\nlist1.extend(list2)\nprint(list1)",
+        "hint": "Use extend() or +"
+      }
+    ]
+  },
+  "44": {
+    "title": "Counting elements",
+    "exercises": [
+      {
+        "question": "Count occurrences",
+        "answer": "colors = [\"red\",\"blue\",\"red\",\"green\",\"red\"]\nprint(f\"Red: {colors.count('red')}\")",
+        "hint": "Use .count() method"
+      }
+    ]
+  },
+  "45": {
+    "title": "Using Lists 2",
+    "exercises": [
+      {
+        "question": "Filter and transform",
+        "answer": "nums = [1,2,3,4,5]\nevens = [n for n in nums if n % 2 == 0]\nprint(f\"Evens: {evens}\")",
+        "hint": "Use list comprehension"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "46": {
+    "title": "To-Do List - Part 2",
+    "exercises": [
+      {
+        "question": "Add menu and delete tasks",
+        "answer": "tasks = []\nwhile True:\n    print(\"\\n1.Add 2.Remove 3.Show 4.Quit\")\n    cmd = input(\"Choose: \")\n    if cmd == \"1\": tasks.append(input(\"Task: \"))\n    elif cmd == \"2\":\n        if tasks: tasks.pop(int(input(\"Num: \"))-1)\n    elif cmd == \"3\": print(tasks)\n    elif cmd == \"4\": break",
+        "hint": "Use while with menu"
+      }
+    ],
+    "type": "PROJECT_GUIDED",
+    "project_part": 2,
+    "project_code": "tasks = []\nwhile True:\n    print('\\n1.Add 2.Remove 3.Show 4.Quit')\n    cmd = input('Choose: ')\n    if cmd == '1': tasks.append(input('Task: '))\n    elif cmd == '2':\n        if tasks: tasks.pop(int(input('Num: '))-1)\n    elif cmd == '3': print(tasks)\n    elif cmd == '4': break\n"
+  },
+  "47": {
+    "title": "Reusing code with functions",
+    "exercises": [
+      {
+        "question": "Create a greet function",
+        "answer": "def greet(name):\n    return f\"Hello, {name}!\"\nprint(greet(\"Ana\"))",
+        "hint": "Use def and return"
+      }
+    ]
+  },
+  "48": {
+    "title": "Creating parameters",
+    "exercises": [
+      {
+        "question": "Create function with parameters",
+        "answer": "def add(a, b):\n    return a + b\nprint(add(3, 5))",
+        "hint": "Define parameters"
+      }
+    ]
+  },
+  "49": {
+    "title": "Return values",
+    "exercises": [
+      {
+        "question": "Return multiple values",
+        "answer": "def stats(nums):\n    return max(nums), min(nums), sum(nums)/len(nums)\nm, n, avg = stats([1,2,3,4,5])",
+        "hint": "Use return with multiple values"
+      }
+    ]
+  },
+  "50": {
+    "title": "Using multiple parameters",
+    "exercises": [
+      {
+        "question": "Function with many parameters",
+        "answer": "def describe(name, age, city):\n    return f\"{name} is {age}, lives in {city}\"\nprint(describe(\"Ana\", 25, \"Lima\"))",
+        "hint": "Use multiple parameters"
+      }
+    ]
+  },
+  "51": {
+    "title": "Understanding functions",
+    "exercises": [
+      {
+        "question": "Understand scope",
+        "answer": "x = 10\ndef show():\n    x = 5\n    print(f\"Inside: {x}\")\nshow()\nprint(f\"Outside: {x}\")",
+        "hint": "Local vs global scope"
+      }
+    ]
+  },
+  "52": {
+    "title": "Functions 1",
+    "exercises": [
+      {
+        "question": "Check if string is palindrome",
+        "answer": "def is_palindrome(s):\n    return s == s[::-1]\nprint(is_palindrome(\"radar\"))",
+        "hint": "Use slicing"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "53": {
+    "title": "Food Ordering System - Part 1",
+    "exercises": [
+      {
+        "question": "Build Italian food ordering",
+        "answer": "menu = {\"pizza\": 10, \"pasta\": 8, \"salad\": 5}\nprint(\"Menu:\")\nfor item, price in menu.items():\n    print(f\"  {item}: ${price}\")\norder = input(\"What would you like? \")\nif order in menu:\n    print(f\"Your {order} costs ${menu[order]}\")\nelse:\n    print(\"Not on menu\")",
+        "hint": "Use dict and for loop"
+      }
+    ],
+    "type": "PROJECT_GUIDED",
+    "project_part": 1,
+    "project_code": "menu = {'pizza': 10, 'pasta': 8, 'salad': 5}\nprint('Menu:')\nfor item, price in menu.items():\n    print(f'  {item}: ${price}')\norder = input('What would you like? ')\nif order in menu:\n    print(f'Your {order} costs ${menu[order]}')\nelse:\n    print('Not on menu')\n"
+  },
+  "54": {
+    "title": "Functions and variable scope",
+    "exercises": [
+      {
+        "question": "Use global keyword",
+        "answer": "count = 0\ndef increment():\n    global count\n    count += 1\nincrement()\nprint(count)",
+        "hint": "Use global keyword"
+      }
+    ]
+  },
+  "55": {
+    "title": "Deciding with functions",
+    "exercises": [
+      {
+        "question": "If/else inside functions",
+        "answer": "def access_level(age):\n    if age >= 18: return \"Adult\"\n    elif age >= 13: return \"Teen\"\n    else: return \"Child\"\nprint(access_level(25))",
+        "hint": "Return from function"
+      }
+    ]
+  },
+  "56": {
+    "title": "Functions with lists",
+    "exercises": [
+      {
+        "question": "Process list in function",
+        "answer": "def double_all(nums):\n    return [n * 2 for n in nums]\nprint(double_all([1,2,3]))",
+        "hint": "Use list comprehension in function"
+      }
+    ]
+  },
+  "57": {
+    "title": "Functions with loops",
+    "exercises": [
+      {
+        "question": "Use loops inside functions",
+        "answer": "def countdown(n):\n    while n > 0:\n        print(n)\n        n -= 1\ncountdown(5)",
+        "hint": "Use while in function"
+      }
+    ]
+  },
+  "58": {
+    "title": "Functions 2",
+    "exercises": [
+      {
+        "question": "Calculate factorial",
+        "answer": "def factorial(n):\n    result = 1\n    for i in range(1, n+1):\n        result *= i\n    return result\nprint(factorial(5))",
+        "hint": "Use loop in function"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "59": {
+    "title": "Food Ordering System - Part 2",
+    "exercises": [
+      {
+        "question": "Add diverse cuisines",
+        "answer": "cuisines = {\"italian\": {\"pizza\": 10, \"pasta\": 8}, \"mexican\": {\"taco\": 5, \"burrito\": 8}, \"japanese\": {\"sushi\": 12, \"ramen\": 9}}\nfor cuisine, items in cuisines.items():\n    print(f\"{cuisine.title()}:\")\n    for item, price in items.items():\n        print(f\"  {item}: ${price}\")\nprint(f\"Total: {len(cuisines)} cuisines\")",
+        "hint": "Nested dicts and loops"
+      }
+    ],
+    "type": "PROJECT_GUIDED",
+    "project_part": 2,
+    "project_code": "cuisines = {'italian': {'pizza': 10, 'pasta': 8}, 'mexican': {'taco': 5, 'burrito': 8}, 'japanese': {'sushi': 12, 'ramen': 9}}\nfor cuisine, items in cuisines.items():\n    print(f'\\n{cuisine.title()}:')\n    for item, price in items.items():\n        print(f'  {item}: ${price}')\nprint(f'Total cuisines: {len(cuisines)}')\n"
+  },
+  "60": {
+    "title": "Creating tuples",
+    "exercises": [
+      {
+        "question": "Create tuples",
+        "answer": "point = (3, 4)\ncolors = (\"red\", \"blue\", \"green\")\nprint(point[0])",
+        "hint": "Use () to create tuple"
+      }
+    ]
+  },
+  "61": {
+    "title": "Tuples and lists",
+    "exercises": [
+      {
+        "question": "Convert between tuples and lists",
+        "answer": "t = (1, 2, 3)\nl = list(t)\nl.append(4)\nt2 = tuple(l)\nprint(t2)",
+        "hint": "Use list() and tuple()"
+      }
+    ]
+  },
+  "62": {
+    "title": "Returning tuples",
+    "exercises": [
+      {
+        "question": "Return multiple values as tuple",
+        "answer": "def get_min_max(nums):\n    return min(nums), max(nums)\nlo, hi = get_min_max([3,1,4,1,5])",
+        "hint": "Use tuple unpacking"
+      }
+    ]
+  },
+  "63": {
+    "title": "Creating dictionaries",
+    "exercises": [
+      {
+        "question": "Create and access dicts",
+        "answer": "person = {\"name\": \"Ana\", \"age\": 25}\nprint(person[\"name\"])\nperson[\"city\"] = \"Lima\"\nprint(person)",
+        "hint": "Use {} and [] access"
+      }
+    ]
+  },
+  "64": {
+    "title": "Using dictionaries",
+    "exercises": [
+      {
+        "question": "Iterate over dicts",
+        "answer": "student = {\"name\": \"Ana\", \"grade\": 90}\nfor key, val in student.items():\n    print(f\"{key}: {val}\")\nprint(f\"Keys: {list(student.keys())}\")",
+        "hint": "Use .items(), .keys()"
+      }
+    ]
+  },
+  "65": {
+    "title": "Tuples, dicts, sets 1",
+    "exercises": [
+      {
+        "question": "Use all three structures",
+        "answer": "scores = {\"Ana\": 90, \"Bob\": 85}\nsorted_scores = sorted(scores.items(), key=lambda x: x[1], reverse=True)\nprint(sorted_scores)\nunique_grades = set(scores.values())\nprint(unique_grades)",
+        "hint": "Combine dict, tuple, set"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "66": {
+    "title": "Draw a Card - Part 1",
+    "exercises": [
+      {
+        "question": "Create virtual deck and draw cards",
+        "answer": "import random\nsuits = [\"Hearts\", \"Diamonds\", \"Clubs\", \"Spades\"]\nranks = [\"A\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\",\"10\",\"J\",\"Q\",\"K\"]\ndeck = [(r, s) for s in suits for r in ranks]\nrandom.shuffle(deck)\nprint(f\"Deck has {len(deck)} cards\")\ncard = deck.pop()\nprint(f\"You drew: {card[0]} of {card[1]}\")",
+        "hint": "Use list comprehension and random"
+      }
+    ],
+    "type": "PROJECT_GUIDED",
+    "project_part": 1,
+    "project_code": "import random\nsuits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']\nranks = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']\ndeck = [(r,s) for s in suits for r in ranks]\nrandom.shuffle(deck)\nprint(f'Deck has {len(deck)} cards')\ncard = deck.pop()\nprint(f'You drew: {card[0]} of {card[1]}')\n"
+  },
+  "67": {
+    "title": "Creating sets",
+    "exercises": [
+      {
+        "question": "Create and use sets",
+        "answer": "colors = {\"red\", \"blue\", \"green\"}\ncolors.add(\"yellow\")\ncolors.discard(\"blue\")\nprint(colors)",
+        "hint": "Use {} for set"
+      }
+    ]
+  },
+  "68": {
+    "title": "Using sets",
+    "exercises": [
+      {
+        "question": "Set operations",
+        "answer": "a = {1,2,3,4}\nb = {3,4,5,6}\nprint(f\"Union: {a | b}\")\nprint(f\"Intersection: {a & b}\")\nprint(f\"Difference: {a - b}\")",
+        "hint": "Use | & - operators"
+      }
+    ]
+  },
+  "69": {
+    "title": "Sets and lists",
+    "exercises": [
+      {
+        "question": "Convert between sets and lists",
+        "answer": "nums = [1,2,2,3,3,4]\nunique = list(set(nums))\nprint(unique)",
+        "hint": "Use set() for dedup"
+      }
+    ]
+  },
+  "70": {
+    "title": "Set operations",
+    "exercises": [
+      {
+        "question": "Use set operations for data",
+        "answer": "math = {\"Ana\", \"Bob\", \"Carlos\"}\nsci = {\"Bob\", \"Carlos\", \"Diana\"}\nprint(f\"Both: {math & sci}\")\nprint(f\"Only math: {math - sci}\")",
+        "hint": "Use set operations"
+      }
+    ]
+  },
+  "71": {
+    "title": "Draw a Card - Part 2",
+    "exercises": [
+      {
+        "question": "Play card game with multiple draws",
+        "answer": "import random\nsuits = [\"Hearts\",\"Diamonds\",\"Clubs\",\"Spades\"]\nranks = [\"A\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\",\"10\",\"J\",\"Q\",\"K\"]\nvalues = {str(i): i for i in range(2,11)}; values.update({\"A\":11,\"J\":10,\"Q\":10,\"K\":10})\ndeck = [(r,s) for s in suits for r in ranks]\nrandom.shuffle(deck)\ntotal = 0\nfor _ in range(2):\n    card = deck.pop()\n    total += values[card[0]]\n    print(f\"Drew {card[0]} of {card[1]} -> Total: {total}\")\nprint(f\"Final total: {total}\")",
+        "hint": "Use for loop and dict lookup"
+      }
+    ],
+    "type": "PROJECT_GUIDED",
+    "project_part": 2,
+    "project_code": "import random\nsuits = ['Hearts','Diamonds','Clubs','Spades']\nranks = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']\nvalues = {str(i): i for i in range(2,11)}; values.update({'A':11,'J':10,'Q':10,'K':10})\ndeck = [(r,s) for s in suits for r in ranks]\nrandom.shuffle(deck)\ntotal = 0\nfor _ in range(2):\n    card = deck.pop()\n    total += values[card[0]]\n    print(f'Drew {card[0]} of {card[1]} -> Total: {total}')\nprint(f'Final total: {total}')\n"
+  },
+  "72": {
+    "title": "Modules",
+    "exercises": [
+      {
+        "question": "Import and use a module",
+        "answer": "import random\nprint(random.randint(1, 100))",
+        "hint": "Use import statement"
+      }
+    ]
+  },
+  "73": {
+    "title": "Modules",
+    "exercises": [
+      {
+        "question": "Import specific functions",
+        "answer": "from math import sqrt, pi\nprint(sqrt(16))\nprint(pi)",
+        "hint": "Use from...import"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "74": {
+    "title": "Creating your own modules",
+    "exercises": [
+      {
+        "question": "Create and import custom module",
+        "answer": "# In mymodule.py: def greet(name): return f\"Hello {name}!\"\n# In main.py: from mymodule import greet\n# print(greet(\"World\"))",
+        "hint": "Create separate .py file"
+      }
+    ]
+  },
+  "75": {
+    "title": "Organizing multi-file programs",
+    "exercises": [
+      {
+        "question": "Split code into multiple files",
+        "answer": "# config.py: API_KEY = \"abc\"\n# main.py: from config import API_KEY\n# print(API_KEY)",
+        "hint": "Use import across files"
+      }
+    ]
+  },
+  "76": {
+    "title": "Understanding Python packages",
+    "exercises": [
+      {
+        "question": "Understand package structure",
+        "answer": "# mypackage/__init__.py\n# mypackage/utils.py\n# from mypackage.utils import helper",
+        "hint": "Understand __init__.py"
+      }
+    ]
+  },
+  "77": {
+    "title": "Python modules",
+    "exercises": [
+      {
+        "question": "Use os and sys modules",
+        "answer": "import os, sys\nprint(os.getcwd())\nprint(sys.version)",
+        "hint": "Import os and sys"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "78": {
+    "title": "Installing third-party packages",
+    "exercises": [
+      {
+        "question": "Install and use pip packages",
+        "answer": "# pip install requests\nimport requests\n# response = requests.get(\"https://api.example.com\")",
+        "hint": "Use pip to install"
+      }
+    ]
+  },
+  "79": {
+    "title": "Managing package versions",
+    "exercises": [
+      {
+        "question": "Check and manage versions",
+        "answer": "import requests\nprint(requests.__version__)",
+        "hint": "Use __version__"
+      }
+    ]
+  },
+  "80": {
+    "title": "Python dependencies",
+    "exercises": [
+      {
+        "question": "Create a requirements.txt",
+        "answer": "# pip freeze > requirements.txt\n# pip install -r requirements.txt",
+        "hint": "Use pip freeze and install"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "81": {
+    "title": "Damage Calculator - Part 1",
+    "exercises": [
+      {
+        "question": "Create damage calculator",
+        "answer": "import random, math\nattack = random.randint(10, 50)\ndefense = random.randint(5, 25)\ndamage = max(0, attack - defense + math.floor(random.gauss(0, 5)))\nprint(f\"Attack: {attack}, Defense: {defense}, Damage: {damage}\")",
+        "hint": "Use random, math modules"
+      }
+    ],
+    "type": "PROJECT_GUIDED",
+    "project_part": 1,
+    "project_code": "import random, math\nattack = random.randint(10, 50)\ndefense = random.randint(5, 25)\ndamage = max(0, attack - defense + math.floor(random.gauss(0, 5)))\nprint(f'Attack: {attack}, Defense: {defense}, Damage: {damage}')\n"
+  },
+  "82": {
+    "title": "Errors and exceptions",
+    "exercises": [
+      {
+        "question": "Handle exceptions with try/except",
+        "answer": "try:\n    x = int(input(\"Num: \"))\n    print(f\"You entered {x}\")\nexcept ValueError:\n    print(\"That was not a number!\")",
+        "hint": "Use try/except"
+      }
+    ]
+  },
+  "83": {
+    "title": "Raising exceptions",
+    "exercises": [
+      {
+        "question": "Raise your own exceptions",
+        "answer": "def divide(a, b):\n    if b == 0: raise ValueError(\"Cannot divide by zero\")\n    return a / b\ntry:\n    print(divide(10, 0))\nexcept ValueError as e:\n    print(f\"Error: {e}\")",
+        "hint": "Use raise keyword"
+      }
+    ]
+  },
+  "84": {
+    "title": "Errors and exceptions",
+    "exercises": [
+      {
+        "question": "Create robust division function",
+        "answer": "def safe_divide(a, b):\n    try:\n        return a / b\n    except ZeroDivisionError:\n        return None\n    except TypeError:\n        return \"Invalid input\"\nprint(safe_divide(10, 2))\nprint(safe_divide(10, 0))",
+        "hint": "Use multiple except blocks"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "85": {
+    "title": "Handling multiple exception types",
+    "exercises": [
+      {
+        "question": "Handle different exception types",
+        "answer": "try:\n    f = open(\"file.txt\")\n    data = f.read()\n    num = int(data)\nexcept FileNotFoundError:\n    print(\"File not found\")\nexcept ValueError:\n    print(\"Not a valid number\")\nfinally:\n    print(\"Cleanup done\")",
+        "hint": "Multiple except blocks"
+      }
+    ]
+  },
+  "86": {
+    "title": "Working with exception messages",
+    "exercises": [
+      {
+        "question": "Create custom exception messages",
+        "answer": "class NegativeError(Exception):\n    pass\ndef process(n):\n    if n < 0: raise NegativeError(f\"{n} is negative!\")\ntry:\n    process(-5)\nexcept NegativeError as e:\n    print(f\"Custom error: {e}\")",
+        "hint": "Define custom exception class"
+      }
+    ]
+  },
+  "87": {
+    "title": "Exception handling",
+    "exercises": [
+      {
+        "question": "Create file reader with error handling",
+        "answer": "def read_number(filename):\n    try:\n        with open(filename) as f:\n            return float(f.read().strip())\n    except FileNotFoundError:\n        print(\"File missing\")\n    except ValueError:\n        print(\"Not a number\")\n    return None\nprint(read_number(\"data.txt\"))",
+        "hint": "Use try/except/finally with files"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "88": {
+    "title": "Best practices in exception handling",
+    "exercises": [
+      {
+        "question": "Follow best practices",
+        "answer": "# Be specific with exception types\n# Never use bare except:\n# Use finally for cleanup",
+        "hint": "Best practice patterns"
+      }
+    ]
+  },
+  "89": {
+    "title": "Exceptions",
+    "exercises": [
+      {
+        "question": "Create a robust calculator",
+        "answer": "def calc(a, b, op):\n    try:\n        a, b = float(a), float(b)\n        if op == \"+\": return a+b\n        elif op == \"-\": return a-b\n        elif op == \"*\": return a*b\n        elif op == \"/\":\n            if b==0: raise ZeroDivisionError\n            return a/b\n        else: raise ValueError(f\"Unknown op: {op}\")\n    except (ValueError, ZeroDivisionError) as e:\n        return f\"Error: {e}\"\nprint(calc(10, 5, \"+\"))\nprint(calc(10, 0, \"/\"))",
+        "hint": "Combine all error handling"
+      }
+    ],
+    "type": "PRACTICE"
+  },
+  "90": {
+    "title": "Sensor Reading Validator - Part 1",
+    "exercises": [
+      {
+        "question": "Validate sensor readings",
+        "answer": "import random\nclass InvalidReadingError(Exception):\n    pass\ndef read_sensor():\n    val = random.uniform(-10, 50)\n    if val < 0 or val > 40: raise InvalidReadingError(f\"Invalid reading: {val}\")\n    return val\nreadings = []\nfor i in range(10):\n    try:\n        r = read_sensor()\n        readings.append(r)\n        print(f\"Reading {i+1}: {r:.2f}\")\n    except InvalidReadingError as e: print(f\"Error: {e}\")\nif readings: print(f\"Valid readings: {len(readings)}/10\")",
+        "hint": "Use custom exceptions and loops"
+      }
+    ],
+    "type": "PROJECT_GUIDED",
+    "project_part": 1,
+    "project_code": "import random\nclass InvalidReadingError(Exception):\n    pass\ndef read_sensor():\n    val = random.uniform(-10, 50)\n    if val < 0 or val > 40: raise InvalidReadingError(f'Invalid reading: {val}')\n    return val\nreadings = []\nfor i in range(10):\n    try:\n        r = read_sensor()\n        readings.append(r)\n        print(f'Reading {i+1}: {r:.2f}')\n    except InvalidReadingError as e: print(f'Error: {e}')\nif readings: print(f'Valid readings: {len(readings)}/10')\n"
+  }
+}
